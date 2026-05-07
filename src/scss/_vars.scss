@@ -1,0 +1,43 @@
+:root {
+  // base
+  --font-family: "Involve", "Arial", sans-serif;
+  --font-secondary: "Coolvetica Compressed", "Arial", sans-serif;
+  --content-width: 1920px;
+  --container-offset-mobile: 16px;
+  --container-offset-tablet: 20px;
+
+  // colors
+  --transparent: rgba(255, 255, 255, 0);
+  --white: #ffffff;
+  --white-opacity: rgba(255, 255, 255, 0.2);
+  --black: #000000;
+  --bg-light: #f4f4f4;
+  --bg-dark: #2a2a2a;
+  --text-basic: #0a0a0f;
+  --text-grey: #828282;
+  --text-extra-light: #f5f5f0;
+  --grey: #ababab;
+  --grey-hover: #b1b1b1;
+  --grey-transparent: rgba(0, 0, 0, 0.2);
+  --accent: #e0112a;
+
+  // z-index
+  --z-video-fixed: 5;
+  --z-select: 10;
+  --z-button-scroll-top: 15;
+  --z-header: 20;
+  --z-modal: 25;
+}
+
+// Viewports
+// ---------------------------------
+
+$vp-320: 320px;
+$vp-400: 400px;
+$vp-550: 550px;
+$vp-768: 768px;
+$vp-1024: 1024px;
+$vp-1280: 1280px;
+$vp-1366: 1366px;
+$vp-1640: 1640px;
+$vp-1920: 1920px;

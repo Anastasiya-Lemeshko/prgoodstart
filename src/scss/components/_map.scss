@@ -1,0 +1,39 @@
+@use "index" as *;
+
+.map__wrapper {
+  display: grid;
+  height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  @include vp-768 {
+    height: 520px;
+  }
+
+  @include vp-1366 {
+    height: 741px;
+  }
+}
+
+.map__image {
+  grid-area: 1 / 1 / 2 / 2;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: var(--grey);
+}
+
+.map__image img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.map__iframe {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.map__iframe iframe {
+  height: 100%;
+}

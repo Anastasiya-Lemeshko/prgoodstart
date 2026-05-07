@@ -1,0 +1,59 @@
+@use "index" as *;
+
+.button-swiper {
+  --color-arrow: var(--accent);
+  --bg-color: var(--transparent);
+
+  position: relative;
+  display: block;
+  width: 76px;
+  height: 50px;
+  padding: 0;
+  text-transform: uppercase;
+  border: 1px solid var(--grey-transparent);
+  background-color: var(--transparent);
+  transition: border 0.3s;
+  border-radius: 80px;
+  cursor: pointer;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    mask-image: url("../img/sprite.svg#button-swiper");
+    mask-position: center;
+    mask-size: 30px 22px;
+    mask-repeat: no-repeat;
+    background-color: var(--color-arrow);
+    transform: rotate(180deg);
+    transition: background-color 0.3s;
+  }
+
+  &--next {
+    transform: rotate(180deg);
+  }
+
+  &--dark {
+    --color-arrow: var(--black);
+  }
+
+  @include hover-focus {
+    border: 1px solid var(--accent);
+
+    outline: none;
+  }
+
+  @include active {
+    border: var(--text-basic);
+  }
+
+  @include disabled {
+    --color-arrow: var(--grey-transparent);
+
+    cursor: default;
+    pointer-events: none;
+  }
+}

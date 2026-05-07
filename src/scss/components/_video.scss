@@ -1,0 +1,35 @@
+@use "index" as *;
+
+.video {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.video__img {
+  position: relative;
+  grid-area: 1 / 1 / 2 / 2;
+  width: 100%;
+
+  img {
+    @include img-bg;
+  }
+}
+
+.video__player {
+  position: relative;
+  grid-area: 1 / 1 / 2 / 2;
+  z-index: 1;
+
+  video {
+    @include img-bg;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.video__button-play {
+  @include video-button;
+}

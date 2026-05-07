@@ -1,0 +1,463 @@
+@use "breakpoint" as *;
+@use "interactive-states" as *;
+
+@mixin input {
+  --transform: scaleY(1) translateY(0);
+  --opacity: 1;
+  --field-color: var(--white);
+  --color: var(--text-secondary);
+  --placeholder-color: var(--transparent);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  cursor: pointer;
+
+  &:has(span.visually-hidden) {
+    --placeholder-color: var(--text-secondary);
+  }
+
+  &:has(input:focus),
+  &:has(input:focus-visible),
+  &:has(textarea:focus),
+  &:has(textarea:focus-visible) {
+    --transform: scaleY(0) translateY(-5px);
+    --opacity: 0;
+  }
+
+  &:has(input:hover),
+  &:has(textarea:hover) {
+    --placeholder-color: var(--grey-middle);
+  }
+
+  &:has(input:hover) span,
+  &:has(textarea:hover) span {
+    --color: var(--grey-middle);
+  }
+
+  span:not(.visually-hidden) {
+    position: relative;
+    grid-area: 1 / 1 / 2 / 2;
+    display: inline-block;
+    margin: 1px 0 0;
+    padding: 0 20px;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--color);
+    transform-origin: top;
+    transform: var(--transform);
+    opacity: var(--opacity);
+    border-radius: 5px;
+    transition: transform 0.3s, opacity 0.3s, color 0.3s;
+    z-index: 1;
+    cursor: pointer;
+
+    @include hover-focus {
+      --color: var(--text-basic);
+    }
+  }
+
+  input,
+  textarea {
+    grid-area: 1 / 1 / 2 / 2;
+    max-width: 100%;
+    padding: 16px 15px 15px 20px;
+    font-size: 18px;
+    background-color: var(--field-color);
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    @include vp-1366 {
+      padding: 20px 40px 18px;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 18px;
+      color: var(--placeholder-color);
+      transform-origin: top;
+      transform: var(--transform);
+      opacity: var(--opacity);
+      transition: transform 0.3s, opacity 0.3s, color 0.3s;
+    }
+  }
+
+  input {
+    height: 40px;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  &:has(input:disabled) {
+    --field-color: var(--grey-light);
+    --color: var(--grey-middle);
+    --placeholder-color: var(--grey-middle);
+
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &--error {
+    --color: var(--error);
+  }
+}
+
+@mixin input-secondary {
+  @include input;
+
+  --color: var(--text-secondary);
+
+  &:has(input:hover) span,
+  &:has(textarea:hover) span {
+    --color: var(--grey);
+  }
+
+  span {
+    padding: 0 15px;
+    font-size: 14px;
+
+    @include vp-1024 {
+      margin: 3px 0 0;
+      font-size: 18px;
+    }
+
+    @include vp-1366 {
+      margin: 4px 0 0;
+    }
+
+    @include hover-focus {
+      --color: var(--grey);
+    }
+  }
+
+  input {
+    padding: 16px 15px 15px;
+
+    @include vp-1024 {
+      height: 50px;
+    }
+
+    @include vp-1366 {
+      height: 60px;
+    }
+  }
+
+  textarea {
+    padding: 20px 15px 15px;
+  }
+}
+
+@mixin input-grey {
+  @include input;
+
+  --color: var(--text-secondary);
+  --field-color: var(--grey-extra-light);
+
+  &:has(input:hover),
+  &:has(textarea:hover),
+  &:has(span:hover) {
+    --field-color: var(--grey-light);
+  }
+
+  span {
+    margin: 2px 0 0;
+    padding: 0 13px;
+    font-size: 14px;
+
+    @include vp-1024 {
+      margin: 3px 0 0;
+      font-size: 18px;
+    }
+
+    @include vp-1366 {
+      margin: 4px 0 0;
+      padding: 0 26px;
+    }
+  }
+
+  input,
+  textarea {
+    padding: 16px 13px 15px;
+
+    @include vp-1024 {
+      height: 50px;
+    }
+
+    @include vp-1366 {
+      height: 60px;
+      padding: 16px 26px 15px;
+    }
+  }
+}
+
+@mixin input-number-reset {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+@mixin checkbox {
+  --color: var(--text-basic);
+  --tick-display: hidden;
+  --tick-opacity: 0;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: stretch;
+  gap: 8px;
+  width: fit-content;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    grid-area: 1 / 1 / 2 / 2;
+    content: "";
+    width: 18px;
+    height: 18px;
+  }
+
+  &::before {
+    border: 1px solid var(--color);
+    border-radius: 5px;
+    transition: border 0.3s;
+  }
+
+  &::after {
+    visibility: var(--tick-display);
+    opacity: var(--tick-opacity);
+    mask-image: url("../img/sprite.svg#tick");
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    mask-position: center center;
+    background-color: var(--color);
+    transition: background-color 0.3s, visibility 0.3s, opacity 0.3s;
+    z-index: 1;
+  }
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    margin: 2px 0 0;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: var(--color);
+    transition: color 0.3s;
+  }
+
+  &:has(input:focus),
+  &:has(input:focus-visible) {
+    --color: var(--bg-accent);
+  }
+
+  @include hover {
+    --color: var(--bg-accent);
+  }
+
+  &:has(input:checked) {
+    --tick-display: visible;
+    --tick-opacity: 1;
+  }
+}
+
+@mixin accept {
+  @include checkbox;
+
+  --color: var(--white);
+  --bg-checkbox: var(--transparent);
+
+  gap: 4px;
+
+  &::before,
+  &::after {
+    width: 10px;
+    height: 10px;
+    margin: 2px 0 0;
+  }
+
+  &::before {
+    border-radius: 0;
+    background-color: var(--bg-checkbox);
+    transition: background-color 0.3s;
+  }
+
+  &::after {
+    background-color: var(--text-basic);
+  }
+
+  span {
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: var(--color);
+    transition: color 0.3s;
+
+    @include vp-1024 {
+      font-size: 14px;
+    }
+  }
+
+  &:has(input:focus),
+  &:has(input:focus-visible) {
+    --color: var(--grey-extra-light);
+  }
+
+  @include hover {
+    --color: var(--grey-light);
+  }
+
+  &:has(input:checked) {
+    --tick-display: visible;
+    --tick-opacity: 1;
+    --bg-checkbox: var(--white);
+  }
+}
+
+@mixin control-toggle {
+  --label-color: var(--black);
+  --bg-color: var(--grey);
+  --toggle-transform: translateX(0);
+
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 53px;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    grid-area: 1 / 2 / 2 / 3;
+    content: "";
+  }
+
+  &::before {
+    width: 53px;
+    height: 22px;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
+
+    @include vp-1024 {
+      height: 28px;
+    }
+  }
+
+  &::after {
+    width: 22px;
+    height: 22px;
+    padding: 2px;
+    background-color: var(--grey-light);
+    background-clip: content-box;
+    transform: var(--toggle-transform);
+    transition: transform 0.3s;
+    z-index: 1;
+
+    @include vp-1024 {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+  }
+
+  span {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: var(--label-color);
+    transition: color 0.3s;
+
+    @include vp-1024 {
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+
+  &:has(input:focus),
+  &:has(input:focus-visible) {
+    --label-color: var(--bg-primary);
+    --bg-color: var(--grey-shadow);
+  }
+
+  @include hover {
+    --label-color: var(--bg-primary);
+    --bg-color: var(--grey-shadow);
+  }
+
+  &:has(input:checked) {
+    --label-color: var(--accent-dark);
+    --bg-color: var(--accent-dark);
+    --toggle-transform: translateX(31px);
+
+    @include vp-1024 {
+      --toggle-transform: translateX(25px);
+    }
+  }
+}
+
+@mixin checkbox-light {
+  @include checkbox;
+
+  --color: var(--white);
+
+  gap: 5px;
+
+  &::before,
+  &::after {
+    width: 30px;
+    height: 30px;
+
+    @include vp-1366 {
+      width: 33px;
+      height: 33px;
+    }
+  }
+
+  span {
+    margin: 0;
+    padding: 3px 25px 2px;
+    color: var(--bg-primary);
+    background-color: var(--color);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+
+    @include vp-1366 {
+      font-size: 18px;
+    }
+  }
+
+  &:has(input:disabled) {
+    --color: var(--grey);
+    --bg-primary: var(--text-light);
+
+    pointer-events: none;
+    cursor: default;
+  }
+}

@@ -1,0 +1,139 @@
+@use "index" as *;
+
+.hero {
+  position: relative;
+}
+
+.hero__wrapper {
+  display: grid;
+  align-content: end;
+  max-width: var(--content-width);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 154px var(--container-offset-mobile) 30px;
+  color: var(--white);
+
+  @include vp-320 {
+    padding: 200px var(--container-offset-mobile) 30px;
+  }
+
+  @include vp-768 {
+    grid-template-rows: 3fr 2fr auto;
+    padding: 200px var(--container-offset-tablet) 30px;
+  }
+}
+
+.hero__img {
+  @include container-img-bg;
+}
+
+.hero__content {
+  max-width: 450px;
+
+  @include vp-768 {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    align-items: end;
+    gap: 20px;
+    max-width: unset;
+    margin: 0 0 50px;
+  }
+
+  @include vp-1366 {
+    grid-template-columns: 1fr 454px;
+  }
+
+  &::after {
+    @include vp-768 {
+      @include decor-line-shift;
+
+      bottom: -23px;
+    }
+  }
+}
+
+.hero__slogan {
+  position: relative;
+  margin: 0 0 40px;
+  font-family: var(--font-secondary);
+  font-weight: 850;
+  font-size: 70px;
+  line-height: 0.9;
+  text-transform: uppercase;
+
+  @include vp-768 {
+    margin: 0;
+  }
+
+  @include vp-1024 {
+    font-size: 85px;
+  }
+
+  @include vp-1366 {
+    font-size: 100px;
+    line-height: 0.8;
+  }
+
+  @include vp-1640 {
+    font-size: 110px;
+  }
+
+  @include vp-1920 {
+    font-size: 120px;
+  }
+
+  &::after {
+    @include decor-line-shift;
+
+    @include vp-768 {
+      display: none;
+    }
+  }
+
+  br {
+    display: none;
+
+    @include vp-768 {
+      display: block;
+    }
+  }
+}
+
+.hero__text {
+  margin: 0 0 40px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--text-extra-light);
+
+  @include vp-768 {
+    margin: 0;
+  }
+}
+
+.hero__button {
+  @include vp-768 {
+    align-self: start;
+    justify-self: end;
+    width: 320px;
+  }
+
+  @include vp-1366 {
+    width: 454px;
+  }
+}
+
+.hero__title {
+  @include visually-hidden;
+
+  @include vp-768 {
+    @include removed-visually-hidden;
+
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+}

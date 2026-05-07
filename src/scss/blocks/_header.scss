@@ -1,0 +1,265 @@
+@use "index" as *;
+
+.header {
+  position: absolute;
+  width: 100%;
+  min-width: 320px;
+  padding: 17px 0 10px;
+  color: var(--white);
+  z-index: var(--z-header);
+
+  @include vp-1366 {
+    padding: 20px 0 10px;
+  }
+}
+
+.header__wrapper {
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 20px;
+  }
+
+  @include vp-1024 {
+    gap: 40px;
+  }
+}
+
+.header__logo {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 20px;
+
+  @include vp-768 {
+    margin: 0;
+  }
+
+  @include vp-1366 {
+    margin: 12px 0 0;
+  }
+
+  @include vp-1640 {
+    margin: 0;
+  }
+}
+
+.header__logo-img {
+  @include logo-image;
+}
+
+a.header__logo-img:not([href]) {
+  cursor: default;
+}
+
+.header__mobile-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  @include vp-768 {
+    display: none;
+  }
+}
+
+.header__city {
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.header__menu {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 40px;
+  width: calc(100% - 2 * 15px);
+  min-width: calc(320px - 2 * 15px);
+  height: calc(100dvh - 2 * 20px);
+  overflow-y: scroll;
+  padding: 0;
+  color: var(--white);
+  background-color: var(--bg-dark);
+  transition: transform 0.6s, opacity 0.3s;
+  transform: translateY(25px);
+  visibility: hidden;
+  opacity: 0;
+  z-index: var(--z-header);
+
+  @include vp-768 {
+    position: relative;
+    top: unset;
+    left: unset;
+    width: unset;
+    height: unset;
+    display: block;
+    padding: 0;
+    background-color: var(--transparent);
+    overflow-y: unset;
+    transform: scaleY(1);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @include vp-1024 {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 0;
+    padding: 7px 0 0;
+  }
+
+  @include vp-1366 {
+    align-items: center;
+    padding: 0;
+  }
+
+  &.is-open {
+    padding: 20px;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header__close-button {
+  @include close-button;
+
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+
+  @include vp-768 {
+    display: none;
+  }
+
+  &::before,
+  &::after {
+    width: 25px;
+  }
+}
+
+.header__menu-list {
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    align-self: unset;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 28px;
+    margin: 0 0 20px;
+  }
+
+  @include vp-1024 {
+    justify-self: center;
+    justify-content: center;
+    min-height: 19px;
+    margin: 0;
+  }
+
+  @include vp-1366 {
+    min-height: unset;
+    gap: 20px;
+  }
+}
+
+.header__menu-item {
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+
+    @include vp-768 {
+      margin: 0;
+    }
+
+    &::after {
+      @include vp-1366 {
+        position: absolute;
+        top: 0;
+        right: -10px;
+        content: "";
+        width: 1px;
+        height: 100%;
+        background-color: var(--white);
+      }
+    }
+  }
+}
+
+.header__menu-link {
+  @include interactive-link-grey;
+
+  display: block;
+  font-family: var(--font-secondary);
+  font-weight: 850;
+  font-size: 70px;
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-align: center;
+
+  @include vp-768 {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  @include vp-1640 {
+    font-size: 16px;
+  }
+}
+
+.header__contacts {
+  text-align: center;
+
+  @include vp-768 {
+    width: fit-content;
+    margin-left: auto;
+  }
+
+  @include vp-1024 {
+    margin-left: 40px;
+  }
+
+  @include vp-1366 {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+.header__tel {
+  @include interactive-link-grey;
+
+  display: block;
+  margin: 0 0 20px;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+
+  @include vp-1366 {
+    margin: 0;
+  }
+}
+
+.header__socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

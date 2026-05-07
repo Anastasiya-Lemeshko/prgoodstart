@@ -1,0 +1,12 @@
+@mixin decor-line-shift {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: var(--white);
+    -webkit-clip-path: inset(0 100% 0 0);
+    clip-path: inset(0 100% 0 0);
+    animation: reveal 3s 2s linear forwards;
+}

@@ -1,0 +1,262 @@
+@use "mixins" as *;
+
+// index
+
+.index {
+  &__hero {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 64px;
+    }
+  }
+
+  &__tags {
+    margin: 0 0 41px;
+
+    @include vp-1024 {
+      margin: 0 0 20px;
+    }
+  }
+
+  &__offers {
+    margin: 0 0 32px;
+
+    @include vp-1024 {
+      margin: 0 0 66px;
+    }
+  }
+
+  &__team {
+    margin: 0 0 36px;
+
+    @include vp-1024 {
+      margin: 0 0 78px;
+    }
+  }
+
+  &__calculation {
+    margin: 0 0 36px;
+
+    @include vp-1024 {
+      margin: 0 0 78px;
+    }
+  }
+
+  &__featured {
+    margin: 0 0 36px;
+
+    @include vp-1024 {
+      margin: 0 0 96px;
+    }
+  }
+
+  &__stories {
+    margin: 0 0 36px;
+
+    @include vp-1024 {
+      margin: 0 0 76px;
+    }
+  }
+
+  &__faq {
+    margin: 0 0 36px;
+
+    @include vp-1024 {
+      margin: 0 0 76px;
+    }
+  }
+
+  &__about {
+    margin: 0 0 33px;
+
+    @include vp-1024 {
+      margin: 0 0 83px;
+    }
+  }
+
+  &__blog-preview {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 80px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 20px;
+  }
+}
+
+// payment
+
+.payment-page {
+  &__payment-methods {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 90px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 20px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
+  }
+}
+
+// privacy
+
+.privacy-page {
+  &__privacy-policy {
+    margin: 0 0 34px;
+
+    @include vp-1024 {
+      margin: 0 0 75px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 18px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
+  }
+}
+
+// catalog
+
+.catalog-page {
+  &__catalog-list {
+    margin: 0 0 34px;
+
+    @include vp-1024 {
+      margin: 0 0 75px;
+    }
+  }
+
+  &__faq {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 82px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 18px;
+
+    @include vp-1024 {
+      margin: 0 0 20px;
+    }
+  }
+}
+
+// project-page
+
+.project-page {
+  &__project {
+    margin: 0 0 34px;
+
+    @include vp-1024 {
+      margin: 0 0 32px;
+    }
+  }
+
+  &__tags {
+    margin: 0 0 34px;
+
+    @include vp-1024 {
+      margin: 0 0 67px;
+    }
+  }
+
+  &__similar {
+    margin: 0 0 16px;
+
+    @include vp-1024 {
+      margin: 0 0 77px;
+    }
+  }
+
+  &__disclamer {
+    margin: 0 0 39px;
+
+    @include vp-1024 {
+      margin: 0 0 80px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 10px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
+  }
+}
+
+// blog
+
+.blog-page {
+  &__blog-list {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 80px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 10px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
+  }
+}
+
+// contacts
+
+.contacts-page {
+  &__contact-us {
+    margin: 0 0 10px;
+
+    @include vp-1024 {
+      margin: 0 0 40px;
+    }
+  }
+
+  &__map {
+    margin: 0 0 20px;
+
+    @include vp-1024 {
+      margin: 0 0 40px;
+    }
+  }
+}
+
+
+// article
+
+.article-page {
+  &__article {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 73px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 10px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
+  }
+}

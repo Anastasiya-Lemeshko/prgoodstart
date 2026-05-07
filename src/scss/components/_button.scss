@@ -1,0 +1,63 @@
+@use "index" as *;
+
+.button {
+  @include interactive-button;
+
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 19px 26px 18px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--white);
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid var(--white-opacity);
+  border-radius: 80px;
+  background-color: var(--transparent);
+  cursor: pointer;
+
+  &--disabled {
+    background-color: var(--grey-middle);
+    color: var(--grey-extra-light);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  @include disabled {
+    background-color: var(--grey);
+    color: var(--text-light);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &--light {
+    @include interactive-button-dark;
+
+    color: var(--text-basic);
+    background-color: var(--white);
+  }
+
+  &--light-to-accent {
+    @include interactive-button-accent;
+
+    color: var(--text-basic);
+    background-color: var(--white);
+  }
+
+  &--dark {
+    @include interactive-button-accent;
+
+    color: var(--white);
+    background-color: var(--text-basic);
+  }
+
+  &--accent {
+    @include interactive-button-dark;
+
+    color: var(--white);
+    background-color: var(--accent);
+  }
+}

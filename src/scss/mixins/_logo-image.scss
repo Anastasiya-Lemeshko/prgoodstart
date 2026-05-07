@@ -1,0 +1,37 @@
+@use "interactive-states" as *;
+@use "breakpoint" as *;
+
+@mixin logo-image {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-height: 133px;
+
+  @include vp-768 {
+    height: 40px;
+  }
+
+  @include vp-1366 {
+    height: 50px;
+  }
+
+  @include vp-1640 {
+    height: 80px;
+  }
+
+  &[href] {
+    @include interactive-opacity;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+
+    @include vp-768 {
+      width: auto;
+      height: 100%;
+    }
+  }
+}

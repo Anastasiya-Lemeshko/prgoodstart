@@ -85,6 +85,8 @@
   transition: background-color 0.3s, opacity 0.3s;
 
   @include hover-focus {
+    color: var(--white);
+    border: 1px solid var(--accent);
     background-color: var(--accent);
     outline: none;
   }

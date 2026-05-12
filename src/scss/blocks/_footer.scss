@@ -101,6 +101,7 @@
   margin: 0 0 20px;
   font-weight: 400;
   font-size: 20px;
+  line-height: 1.3;
 
   @include vp-1280 {
     max-width: unset;
@@ -157,7 +158,7 @@
 
 .footer__links {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr minmax(50px, auto);
   gap: 20px;
   margin: 0 0 30px;
 

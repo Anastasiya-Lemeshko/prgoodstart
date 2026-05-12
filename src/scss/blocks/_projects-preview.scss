@@ -106,7 +106,7 @@
 }
 
 .projects-preview__name {
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   font-weight: 400;
   font-size: 25px;
   line-height: 0.9;
@@ -123,7 +123,7 @@
   dd {
     font-weight: 400;
     font-size: 16px;
-    margin: 0 0 20px;
+    margin: 0 0 13px;
 
     @include vp-1366 {
       font-size: 18px;

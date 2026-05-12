@@ -2,7 +2,12 @@
   <div class="callback__wrapper">
     <div class="callback__title-wrapper">
       <div class="callback__img">
-        <img src="img/test.jpg">
+        <picture>
+          <source width="949" height="1260" type="image/webp" media="(min-width: 768px)" srcset="img/form/1-tablet@1x.webp 1x, img/form/1-tablet@2x.webp 2x">
+          <source width="400" height="531" type="image/webp" srcset="img/form/1-mobile@1x.webp 1x, img/form/1-mobile@2x.webp 2x">
+          <source width="949" height="1260" type="image/jpg" media="(min-width: 768px)" srcset="img/form/1-tablet@1x.jpg 1x, img/form/1-tablet@2x.jpg 2x">
+          <img src="img/form/1-mobile@1x.jpg" srcset="img/form/1-mobile@2x.jpg 2x" width="400" height="531" alt="Логотип компании">
+        </picture>
       </div>
       <h2 class="callback__title title title--big title--light">Где вы сможете выйти&nbsp;? <br>И&nbsp;какой будет эффект&nbsp;?</h2>
     </div>

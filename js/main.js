@@ -15365,6 +15365,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_marquee_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/_marquee.js */ "./src/js/components/_marquee.js");
 /* harmony import */ var _components_scroll_trigger_animation_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/_scroll-trigger-animation.js */ "./src/js/components/_scroll-trigger-animation.js");
 /* harmony import */ var _components_video_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/_video.js */ "./src/js/components/_video.js");
+/* harmony import */ var _components_move_footer_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/_move-footer.js */ "./src/js/components/_move-footer.js");
+
 
 
 
@@ -15381,6 +15383,7 @@ document.addEventListener('DOMContentLoaded', () => {
   (0,_components_marquee_js__WEBPACK_IMPORTED_MODULE_4__.setMarquee)();
   (0,_components_scroll_trigger_animation_js__WEBPACK_IMPORTED_MODULE_5__.setScrollAnimation)();
   (0,_components_video_js__WEBPACK_IMPORTED_MODULE_6__.playVideo)();
+  (0,_components_move_footer_js__WEBPACK_IMPORTED_MODULE_7__.moveFooter)();
 });
 
 /***/ }),
@@ -15812,6 +15815,36 @@ const setMediaHeight = contentHeight => {
     tabsWrapper.style.height = `${tablinksHeight + contentHeight}px`;
   }
 };
+
+
+/***/ }),
+
+/***/ "./src/js/components/_move-footer.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/_move-footer.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   moveFooter: () => (/* binding */ moveFooter)
+/* harmony export */ });
+/* harmony import */ var _vars_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../_vars.js */ "./src/js/_vars.js");
+
+const footer = document.querySelector('.footer__bottom');
+const logo = footer ? footer.querySelector('.footer__logo') : null;
+let isFooterMoved = false;
+const moveFooter = () => {
+  if (logo && _vars_js__WEBPACK_IMPORTED_MODULE_0__.TABLET_WIDTH.matches && !isFooterMoved) {
+    footer.prepend(logo);
+    isFooterMoved = true;
+  }
+  if (logo && !_vars_js__WEBPACK_IMPORTED_MODULE_0__.TABLET_WIDTH.matches && isFooterMoved) {
+    footer.appendChild(logo);
+    isFooterMoved = false;
+  }
+};
+_vars_js__WEBPACK_IMPORTED_MODULE_0__.TABLET_WIDTH.addEventListener('change', moveFooter);
 
 
 /***/ }),

@@ -1,0 +1,291 @@
+@use "index" as *;
+
+.footer {
+  position: relative;
+  padding: 40px 0;
+  color: var(--white);
+}
+
+.footer__img {
+  @include container-img-bg;
+
+  background-color: var(--accent);
+}
+
+.footer__top {
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--white-opacity);
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  @include vp-1366 {
+    padding: 0 0 65px;
+  }
+}
+
+.footer__contacts {
+  margin: 0 0 20px;
+
+  @include vp-768 {
+    margin: 0;
+  }
+
+  @include vp-1366 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.footer__contacts-title {
+  margin: 0 0 40px;
+  text-transform: unset;
+
+  @include vp-768 {
+    font-size: 60px;
+  }
+
+  @include vp-1366 {
+    margin: 0;
+    font-size: 80px;
+  }
+}
+
+.footer__mail,
+.footer__city,
+.footer__tel {
+  display: block;
+  margin: 0;
+  font-family: var(--font-secondary);
+  font-weight: 850;
+  font-size: 35px;
+  line-height: 1;
+  text-transform: uppercase;
+
+  @include vp-768 {
+    font-size: 40px;
+  }
+
+  @include vp-1366 {
+    font-size: 60px;
+  }
+}
+
+.footer__mail {
+  margin: 0 0 40px;
+
+  @include vp-1366 {
+    margin: 0;
+  }
+}
+
+.footer__form {
+  @include vp-768 {
+    justify-self: end;
+    max-width: 694px;
+  }
+}
+
+.footer__form-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.footer__form-title {
+  max-width: 500px;
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: 20px;
+
+  @include vp-1280 {
+    max-width: unset;
+    margin: 0 0 45px;
+    font-size: 28px;
+  }
+
+  @include vp-1640 {
+    margin: 0 0 60px;
+    font-size: 35px;
+  }
+}
+
+.footer__form-list {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.footer__form-item {
+  &:not(:last-child) {
+    margin: 0 0 40px;
+  }
+}
+
+.footer__field {
+  @include input-classic;
+}
+
+.footer__accept {
+  @include accept;
+
+  max-width: 637px;
+  margin: 0 0 21px;
+}
+
+.footer__form-button {
+  width: 100%;
+}
+
+.footer__bottom {
+  padding: 20px 0 0;
+
+  @include vp-1366 {
+    padding: 35px 0 0;
+  }
+
+  @include vp-1640 {
+    display: grid;
+    grid-template-columns: 1fr 1168px;
+    gap: 50px;
+  }
+}
+
+.footer__links {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  margin: 0 0 30px;
+
+  @include vp-768 {
+    grid-template-columns: 11fr 9fr 5fr 100px;
+    gap: 10px;
+    margin: 0 0 40px;
+  }
+
+  @include vp-1640 {
+    margin: 0;
+  }
+
+  @include vp-1920 {
+    grid-template-columns: 25fr 58fr 53fr;
+    gap: 40px;
+  }
+}
+
+.footer__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &--services {
+    grid-column: 1 / 3;
+
+    @include vp-768 {
+      grid-column: 2 / 4;
+    }
+
+    @include vp-1920 {
+      grid-column: unset;
+    }
+  }
+
+  &--socials {
+    grid-area: 1 / 2 / 2 / 3;
+
+    @include vp-768 {
+      grid-area: unset;
+      justify-self: end;
+    }
+
+    @include vp-1640 {
+      justify-self: start;
+    }
+  }
+}
+
+.footer__item {
+  &:not(:last-child) {
+    margin: 0 0 10px;
+  }
+}
+
+.footer__link {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.footer__policy {
+  margin: 0 0 40px;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: 11fr 9fr 5fr 100px;
+    gap: 10px;
+    margin: 0;
+  }
+}
+
+.footer__policy-item {
+  &:not(:last-child) {
+    margin: 0 0 10px;
+
+    @include vp-768 {
+      margin: 0;
+    }
+  }
+
+  &:last-child {
+    @include vp-768 {
+      grid-column: 3 / 5;
+    }
+  }
+}
+
+.footer__policy-link {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+
+  br {
+    display: none;
+
+    @include vp-768 {
+      display: block;
+    }
+
+    @include vp-1366 {
+      display: none;
+    }
+  }
+}
+
+.footer__logo {
+  @include logo-image;
+
+  @include vp-768 {
+    margin: 0 0 40px;
+  }
+
+  @include vp-1366 {
+    height: 60px;
+  }
+
+  @include vp-1640 {
+    grid-area: 1 / 1 / 3 / 2;
+    align-self: end;
+    margin: 0;
+  }
+
+  @include vp-1920 {
+    height: 80px;
+  }
+}

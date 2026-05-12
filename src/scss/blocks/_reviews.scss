@@ -29,6 +29,14 @@
     gap: 10px;
   }
 
+  @include vp-1366 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include vp-1640 {
+    gap: 20px;
+  }
+
   &.swiper-wrapper {
     display: flex;
     gap: unset;
@@ -43,11 +51,19 @@
 .reviews__card {
   @include slide-container;
 
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  min-height: 414px;
   padding: 20px;
   background-color: var(--white);
+
+  @include vp-1024 {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 50px 20px;
+    min-height: 450px;
+  }
+
+  @include vp-1640 {
+    min-height: 516px;
+  }
 }
 
 .reviews__name {
@@ -58,14 +74,31 @@
   font-size: 14px;
   text-transform: uppercase;
   color: var(--white);
+  text-align: center;
   background-color: var(--accent);
   border-radius: 90px;
+
+  @include vp-1024 {
+    align-self: start;
+    justify-self: end;
+  }
 }
 
 .reviews__img {
   width: 250px;
   height: 250px;
   margin: 0 auto 20px;
+
+  @include vp-1024 {
+    grid-area: 1 / 1 / 2 / 2;
+    width: 150px;
+    height: 138px;
+  }
+
+  @include vp-1640 {
+    width: 200px;
+    height: 186px;
+  }
 
   img {
     @include img-contain;
@@ -76,6 +109,13 @@
   margin: 0;
   font-weight: 400;
   font-size: 16px;
+
+  @include vp-1024 {
+    grid-column: 1 / 3;
+    align-self: end;
+    min-height: 155px;
+    font-size: 18px;
+  }
 }
 
 .reviews__swiper-button-container {

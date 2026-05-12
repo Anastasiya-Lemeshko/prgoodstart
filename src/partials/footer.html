@@ -1,94 +1,104 @@
 <footer class="footer">
+  <div class="footer__img">
+    <!-- <img src="img/test.jpg">  -->
+  </div>
   <div class="container">
-    <div class="footer__wrapper">
-      <div class="footer__top">
-        <a class="footer__logo" href="index.html">Logo</a>
-        <div class="footer__nav">
-          <p class="footer__subtitle">Navigation</p>
-          <ul class="footer__list">
-            <li class="footer__item">
-              <a class="footer__link" href="index.html">Home</a>
-            </li>
-            <li class="footer__item">
-              <a class="footer__link" href="catalog.html">Catalog</a>
-            </li>
-            <li class="footer__item">
-              <a class="footer__link" href="payment.html">Payment Methods</a>
-            </li>
-            <li class="footer__item">
-              <a class="footer__link" href="contacts.html">Contacts</a>
-            </li>
-            <li class="footer__item">
-              <a class="footer__link" href="blog.html">Blog</a>
-            </li>
-          </ul>
+    <div class="footer__top">
+      <section class="footer__contacts">
+        <h2 class="footer__contacts-title title">Контакты</h2>
+        <a class="footer__mail" href="mailto:kristina@rodnova.com">kristina@rodnova.com</a>
+        <div class="footer__contacts-group">
+          <p class="footer__city">г.&nbsp;Москва</p>
+          <a class="footer__tel" href="tel:+79035145040">+7&nbsp;903&nbsp;514&nbsp;50&nbsp;40</a>
         </div>
-        <div class="footer__info">
-          <p class="footer__subtitle">Information</p>
-          <ul class="footer__list">
-            <li class="footer__item">
-              <a class="footer__link" href="index.html">Home</a>
+      </section>
+      <form class="footer__form" action="form.php" method="post">
+        <fieldset class="footer__form-group">
+          <legend class="footer__form-title">Не&nbsp;нашли подходящий вариант? Заполните форму чтобы получить индивидуальное предложение.</legend>
+          <ul class="footer__form-list">
+            <li class="footer__form-item">
+              <label class="footer__field">
+                <span class="footer__label">Ваше имя</span>
+                <input class="footer__input" type="text" name="name" placeholder="имя">
+              </label>
             </li>
-            <li class="footer__item">
-              <a class="footer__link" href="catalog.html">Catalog</a>
-            </li>
-            <li class="footer__item">
-              <a class="footer__link" href="payment.html">Payment Methods</a>
-            </li>
-            <li class="footer__item">
-              <a class="footer__link" href="contacts.html">Contacts</a>
-            </li>
-            <li class="footer__item">
-              <a class="footer__link" href="blog.html">Blog</a>
-            </li>
-          </ul>
-          <ul class="footer__socials">
-            <li class="footer__socials-item popup-social" data-popup="whatsapp">
-              <a class="footer__socials-link footer__socials-link--whatsapp" href="#" target="_blank" rel="noreferrer noopener">
-                <span class="visually-hidden">Whatsapp.</span>
-              </a>
-            </li>
-            <li class="footer__socials-item popup-social" data-popup="tg">
-              <a class="footer__socials-link footer__socials-link--tg" href="#" target="_blank" rel="noreferrer noopener">
-                <span class="visually-hidden">Telegram.</span>
-              </a>
-            </li>
-            <li class="footer__socials-item">
-              <a class="footer__socials-link footer__socials-link--instagram" href="#" target="_blank" rel="noreferrer noopener">
-                <span class="visually-hidden">Instagram.</span>
-              </a>
+            <li class="footer__form-item">
+              <label class="footer__field">
+                <span class="footer__label">Ваш телефон</span>
+                <input class="footer__input" type="tel" name="phone" placeholder="телефон">
+              </label>
             </li>
           </ul>
+        </fieldset>
+        <label class="footer__accept">
+          <span class="footer__label">Я даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;Политикой конфиденциальности.</span>
+          <input class="visually-hidden" type="checkbox" name="accept">
+        </label>
+        <button class="footer__form-button button button--light-to-accent" type="submit">Отправить +</button>
+        <div class="footer__form-error-wrapper form-error-message">
+          <p class="footer__form-error hidden"></p>
         </div>
+      </form>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__links">
+        <ul class="footer__list footer__list--nav">
+          <li class="footer__item">
+            <a class="footer__link" href="#">Проекты</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">О&nbsp;компании</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Услуги</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Блог</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Контакты</a>
+          </li>
+        </ul>
+        <ul class="footer__list footer__list--services">
+          <li class="footer__item">
+            <a class="footer__link" href="#">Полное PR&#8288;-&#8288;сопровождение</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">PR на&nbsp;ТВ и радио</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Публикации в&nbsp;СМИ</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Подкасты и коллаборации</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Создание позиционирования (опционально)</a>
+          </li>
+        </ul>
+        <ul class="footer__list footer__list--socials">
+          <li class="footer__item">
+            <a class="footer__link" href="#" target="_blank" rel="noreferrer noopener">WA</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#" target="_blank" rel="noreferrer noopener">TG</a>
+          </li>
+        </ul>
       </div>
-      <div class="footer__bottom">
-        <p class="footer__name">Name Company</p>
-        <a class="footer__privacy" href="privacy.html">Privacy Policy</a>
+      <div class="footer__policy">
+        <li class="footer__policy-item">
+          <a class="footer__policy-link" href="#">Согласие на&nbsp;обработку <br>персональных данных</a>
+        </li>
+        <li class="footer__policy-item">
+          <a class="footer__policy-link" href="#">Политика обработки <br>файлов куки</a>
+        </li>
+        <li class="footer__policy-item">
+          <a class="footer__policy-link" href="#">Политика <br>конфиденциальности</a>
+        </li>
       </div>
+      <a class="footer__logo" href="#">
+        <img src="img/logo.svg" alt="Логотип pr-агентства Хорошее начало.">
+      </a>
     </div>
   </div>
 </footer>
-<div class="popup-social__content hidden" data-popup-content="whatsapp">
-  <button class="popup-social__close popup__button" type="button">
-    <span class="visually-hidden">Close.</span>
-  </button>
-  <p class="popup-social__title">Go&nbsp;to</p>
-  <div class="popup-social__wrapper">
-    <a class="popup-social__link popup-social__link--whatsapp" href="#" target="_blank" rel="noreferrer noopener">
-      <span class="visually-hidden">Whatsapp.</span>
-    </a>
-    <p class="popup-social__number">+971&nbsp;58&nbsp;638&nbsp;6980</p>
-  </div>
-</div>
-<div class="popup-social__content hidden" data-popup-content="tg">
-  <button class="popup-social__close popup__button" type="button">
-    <span class="visually-hidden">Close.</span>
-  </button>
-  <p class="popup-social__title">Go&nbsp;to</p>
-  <div class="popup-social__wrapper">
-    <a class="popup-social__link popup-social__link--tg" href="#" target="_blank" rel="noreferrer noopener">
-      <span class="visually-hidden">Telegram.</span>
-    </a>
-    <p class="popup-social__number">+971&nbsp;58&nbsp;638&nbsp;6980</p>
-  </div>
-</div>

@@ -1,0 +1,38 @@
+[data-animation="basic"] [data-animation-el] {
+  transition: -webkit-clip-path 1.2s ease-out, clip-path 1.2s ease-out;
+}
+
+[data-animation="basic"].animated [data-animation-el] {
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+}
+
+[data-animation="slide-down"] [data-animation-el] {
+  -webkit-clip-path: inset(0 0 100% 0);
+  clip-path: inset(0 0 100% 0);
+}
+
+// анимация линий по скроллу
+
+[data-animation="decor-line"] {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-basic);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 3s 0.3s;
+  }
+
+  &.animated {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}

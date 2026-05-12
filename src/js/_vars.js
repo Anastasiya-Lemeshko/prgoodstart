@@ -36,13 +36,30 @@ export const SLIDER_CONFIG = {
     'tablet_count': 2,
     'desktop_count': 3,
   },
-  'marquee': {
-    'mobile_count': 'auto',
-    'tablet_count': 'auto',
-    'desktop_count': 'auto',
-    'freeMode': true,
+  'projects-preview': {
+    'mobile_count': 1,
+    'tablet_count': 1,
+    'desktop_count': 1,
+    'loop': true,
+  },
+  'stages': {
+    'mobile_count': 1,
+    'tablet_count': 2,
+    'desktop_count': 2,
+    'loop': true,
+  },
+  'blog-preview': {
+    'mobile_count': 1,
+    'tablet_count': 2,
+    'desktop_count': 4,
     'loop': true,
     'desktop_width': SMALL_DESKTOP_WIDTH,
+  },
+  'reviews': {
+    'mobile_count': 1,
+    'tablet_count': 2,
+    'desktop_count': 3,
+    'loop': true,
   },
 };
 

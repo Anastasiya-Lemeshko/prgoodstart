@@ -2,7 +2,7 @@
 
 .button-swiper {
   --color-arrow: var(--accent);
-  --bg-color: var(--transparent);
+  --border-color: var(--grey-transparent);
 
   position: relative;
   display: block;
@@ -10,7 +10,7 @@
   height: 50px;
   padding: 0;
   text-transform: uppercase;
-  border: 1px solid var(--grey-transparent);
+  border: 1px solid var(--border-color);
   background-color: var(--transparent);
   transition: border 0.3s;
   border-radius: 80px;
@@ -32,22 +32,14 @@
     transition: background-color 0.3s;
   }
 
-  &--next {
-    transform: rotate(180deg);
-  }
-
-  &--dark {
-    --color-arrow: var(--black);
-  }
-
   @include hover-focus {
-    border: 1px solid var(--accent);
+    --border-color: var(--accent);
 
     outline: none;
   }
 
   @include active {
-    border: var(--text-basic);
+    --border-color: var(--text-basic);
   }
 
   @include disabled {
@@ -55,5 +47,24 @@
 
     cursor: default;
     pointer-events: none;
+  }
+
+  &--next {
+    transform: rotate(180deg);
+  }
+
+  &--light {
+    --color-arrow: var(--white);
+    --border-color: var(--white);
+
+    @include hover-focus {
+      --border-color: var(--text-grey);
+      --color-arrow: var(--text-grey);
+    }
+
+    @include active {
+      --border-color: var(--accent);
+      --color-arrow: var(--accent);
+    }
   }
 }

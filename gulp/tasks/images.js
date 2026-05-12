@@ -3,7 +3,10 @@ import imagemin, { gifsicle, mozjpeg, optipng, svgo } from 'gulp-imagemin';
 import newer from "gulp-newer";
 
 export const images = () => {
-  return app.gulp.src([`${app.paths.srcImgFolder}/**/**.{jpg,jpeg,png,svg}`], { encoding: false })
+  return app.gulp.src([
+    `${app.paths.srcImgFolder}/**/**.{jpg,jpeg,png,svg}`,
+    `${app.paths.srcImgFolder}/**/**.{mp4,webm,ogg,mov,avi}`
+  ], { encoding: false })
     // .pipe(newer(app.paths.buildImgFolder))
     // .pipe(gulpif(app.isProd, imagemin([
     //   gifsicle({ interlaced: true }),

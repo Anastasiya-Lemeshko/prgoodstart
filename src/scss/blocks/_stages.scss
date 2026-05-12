@@ -1,0 +1,173 @@
+@use "index" as *;
+
+.stages {
+  padding: 40px 0 20px;
+  background-color: var(--text-basic);
+
+  @include vp-1024 {
+    padding: 80px 0;
+  }
+
+  @include vp-1640 {
+    padding: 125px 0 87px;
+  }
+}
+
+.stages__header {
+  position: relative;
+
+  @include vp-1366 {
+    padding-left: calc(100% - 1000px);
+  }
+
+  @include vp-1640 {
+    padding-left: calc(100% - 1200px);
+  }
+
+  @include vp-1920 {
+    padding-left: 480px;
+  }
+
+  &::after {
+    top: unset;
+    bottom: -20px;
+    background-color: var(--white);
+  }
+}
+
+.stages__title {
+  br {
+    @include vp-768 {
+      display: block;
+    }
+  }
+
+  @include vp-1366 {
+    max-width: calc(100% - 200px);
+  }
+}
+
+.stages__swiper-container {
+  position: relative;
+  margin: 110px 0 0;
+
+  @include vp-1366 {
+    margin: 90px 0 0;
+  }
+
+  @include vp-1366 {
+    padding-left: calc(100% - 1000px);
+  }
+
+  @include vp-1640 {
+    padding-left: calc(100% - 1200px);
+  }
+
+  @include vp-1920 {
+    padding-left: 480px;
+  }
+}
+
+.stages__swiper {
+  position: static;
+}
+
+.stages__swiper-wrapper {
+  display: flex;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  &.swiper-wrapper {
+    display: flex;
+    gap: unset;
+  }
+}
+
+.stages__slide {
+  @include slide-layout;
+}
+
+.stages__card {
+  @include slide-container;
+
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-height: 414px;
+  padding: 20px;
+  background-color: var(--bg-light);
+}
+
+.stages__number {
+  width: fit-content;
+  margin: 0 0 47px;
+  padding: 20px 36px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: var(--accent);
+  border-radius: 90px;
+}
+
+.stages__subtitle {
+  max-width: 500px;
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 0.9;
+
+  @include vp-1024 {
+    font-size: 35px;
+  }
+}
+
+.stages__text {
+  max-width: 500px;
+  align-self: end;
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+
+  @include vp-1024 {
+    font-size: 18px;
+  }
+}
+
+.stages__swiper-button-container {
+  @include swiper-button-position;
+
+  position: absolute;
+  bottom: calc(100% + 20px);
+  right: 0;
+  justify-content: flex-end;
+
+  @include vp-1366 {
+    bottom: calc(100% + 90px);
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.stages__link {
+  width: 100%;
+
+  @include vp-768 {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+  }
+
+  @include vp-1640 {
+    width: fit-content;
+    min-width: 455px;
+  }
+}

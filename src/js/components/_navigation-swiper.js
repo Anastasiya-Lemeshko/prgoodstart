@@ -28,6 +28,7 @@ const setNavigationSwiper = () => {
     const swiperButtons = section.querySelector(`.${sectionClass}swiper-button-container`) ?? section.parentElement.querySelector(`.${sectionClass}swiper-button-container`);
     const sliderConfig = SLIDER_CONFIG[sectionName] || SLIDER_CONFIG.default;
     const desktopBreakpoint = sliderConfig.desktop_width ?? DESKTOP_WIDTH;
+    const desktopBreakpointNumber = sliderConfig.desktop_width ? '1024' : '1366';
 
     const sectionSection = section.closest('section');
     const tabs = sectionSection ? sectionSection.querySelector('.tabs') : null;
@@ -77,7 +78,7 @@ const setNavigationSwiper = () => {
             autoHeight: sliderConfig.auto_height ?? (sliderConfig.tablet_count === 1),
           },
 
-          1024: {
+          desktopBreakpointNumber: {
             slidesPerView: sliderConfig.desktop_count,
             autoHeight: sliderConfig.auto_height ?? (sliderConfig.desktop_count === 1),
             speed: 1000,

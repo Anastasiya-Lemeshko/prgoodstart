@@ -81,14 +81,6 @@
   }
 
   &::before {
-    @include decor-line-shift;
-
-    top: 0;
-    bottom: unset;
-    background-color: var(--grey-line);
-  }
-
-  &::after {
     position: absolute;
     top: 20px;
     left: 0;
@@ -110,6 +102,10 @@
       grid-area: 1 / 1 / 5 / 2;
       padding: 10px 0 0;
     }
+  }
+
+  &::after {
+    background-color: var(--grey-light);
   }
 
   &:not(:last-child) {

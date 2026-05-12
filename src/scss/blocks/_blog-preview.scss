@@ -1,0 +1,146 @@
+@use "index" as *;
+
+.blog-preview {
+  padding: 40px 0;
+
+  @include vp-1024 {
+    padding: 40px 0 50px;
+  }
+}
+
+.blog-preview__swiper-wrapper {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  @include vp-1024 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &.swiper-wrapper {
+    display: flex;
+    gap: unset;
+    margin: 0 0 20px;
+  }
+}
+
+.blog-preview__slide {
+  @include slide-layout;
+}
+
+.blog-preview__card {
+  @include slide-container;
+
+  padding: 20px 12px;
+  color: var(--bg-light);
+  background-color: var(--text-basic);
+
+  @include vp-768 {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 512px;
+  }
+
+  @include vp-1024 {
+    min-height: 400px;
+  }
+
+  @include vp-1366 {
+    min-height: 450px;
+  }
+
+  @include vp-1640 {
+    min-height: 512px;
+  }
+}
+
+.blog-preview__name {
+  position: relative;
+  margin: 0 0 20px;
+  padding: 0 25px 12px 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 0.9;
+  border-bottom: 1px solid var(--bg-light);
+
+  @include vp-1024 {
+    min-height: 42px;
+  }
+
+  @include vp-1366 {
+    min-height: unset;
+  }
+
+  @include vp-1640 {
+    font-size: 18px;
+  }
+
+  @include vp-1920 {
+    font-size: 20px;
+  }
+
+  &::after {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-color: var(--accent);
+    border-radius: 50%;
+  }
+}
+
+.blog-preview__img {
+  position: relative;
+  width: 100%;
+  height: 415px;
+  margin: 0 0 10px;
+
+  @include vp-768 {
+    height: unset;
+  }
+
+  img {
+    @include img-bg;
+  }
+}
+
+.blog-preview__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.blog-preview__category,
+.blog-preview__date {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+
+  @include vp-1640 {
+    font-size: 18px;
+  }
+}
+
+.blog-preview__swiper-button-container {
+  @include swiper-button-position;
+
+  @include vp-1280 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}

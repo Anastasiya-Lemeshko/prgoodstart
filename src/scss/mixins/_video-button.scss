@@ -3,7 +3,8 @@
 @use "../vars" as *;
 
 @mixin video-button {
-  --button-transform: translate(-50%, -50%);
+  --bg: var(--white-opacity-extra);
+  --circle-opacity: 1;
   --pause-opacity: 0;
 
   box-sizing: border-box;
@@ -19,47 +20,41 @@
   z-index: 1;
   cursor: pointer;
 
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    width: 76px;
+    height: 50px;
+    border: 1px solid var(--white-opacity);
+    border-radius: 80px;
+    background-color: var(--bg);
+    backdrop-filter: blur(20px);
+    opacity: var(--circle-opacity);
+    transition: background-color 0.5s, opacity 0.5s;
+  }
+
   &::after {
     position: absolute;
     top: 50%;
-    left: calc(50% + 3px);
-    transform: var(--button-transform);
+    left: 50%;
+    transform: translate(-50%, -50%);
     content: "";
-    border: 14px solid var(--transparent);
-    border-left: 20px solid var(--white);
-    transition: transform 0.5s, border 0.5s, opacity 0.5s;
-
-    @include vp-768 {
-      left: calc(50% + 15px);
-      border: 20px solid var(--transparent);
-      border-left: 35px solid var(--white);
-    }
+    width: 15px;
+    height: 24px;
+    mask-image: url("../img/sprite.svg#arrow-mini");
+    mask-position: center;
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    background-color: var(--accent);
+    transition: background-color 0.5s;
+    z-index: 1;
   }
 
   @include hover-focus {
-    --button-transform: translate(-50%, -50%) scale(1.15);
-  }
-
-  &.playing {
-    &::after {
-      opacity: 0;
-    }
-
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      content: "";
-      width: 40px;
-      height: 45px;
-      background-image: linear-gradient(to right, var(--white) 35%, var(--transparent) 35%, var(--transparent) 65%, var(--white) 65%);
-      opacity: var(--pause-opacity);
-      transition: opacity 0.2s;
-    }
-
-    @include hover-focus {
-      --pause-opacity: 1;
-    }
+    --bg: var(--white);
+    --circle-opacity: 0.5;
   }
 }

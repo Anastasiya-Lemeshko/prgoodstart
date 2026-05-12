@@ -1,0 +1,169 @@
+@use "index" as *;
+
+.callback {
+  color: var(--white);
+  background-color: var(--text-basic);
+
+  .container {
+    padding: 0;
+  }
+}
+
+.callback__wrapper {
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include vp-1640 {
+    min-height: 1007px;
+  }
+}
+
+.callback__title-wrapper {
+  position: relative;
+  display: grid;
+  align-items: end;
+  aspect-ratio: 400 / 524;
+  z-index: 1;
+
+  @include vp-550 {
+    aspect-ratio: unset;
+    height: 650px;
+  }
+
+  @include vp-768 {
+    display: block;
+    height: unset;
+  }
+}
+
+.callback__img {
+  @include container-img-bg;
+}
+
+.callback__title {
+  margin: 0;
+  padding: 30px var(--container-offset-mobile);
+
+  @include vp-768 {
+    padding: 30px var(--container-offset-tablet);
+  }
+
+  @include vp-1920 {
+    width: calc(var(--content-width) / 2);
+    justify-self: end;
+  }
+
+  br {
+    @include vp-400 {
+      display: block;
+    }
+  }
+}
+
+.callback__content {
+  padding: 20px var(--container-offset-mobile) 40px;
+
+  @include vp-768 {
+    padding: 20px var(--container-offset-tablet) 40px;
+  }
+
+  @include vp-1366 {
+    display: grid;
+  }
+
+  @include vp-1920 {
+    width: calc(var(--content-width) / 2);
+    justify-self: start;
+  }
+}
+
+.callback__logo {
+  display: none;
+
+  @include vp-1366 {
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-self: end;
+    min-height: 187px;
+    margin: 0 0 40px;
+    color: var(--white);
+    background-color: var(--accent);
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+  }
+
+  img {
+    margin: 0 0 7px;
+  }
+}
+
+.callback__logo-text {
+  margin: 0 0 22px;
+}
+
+.callback__form {
+  @include vp-1366 {
+    align-self: end;
+  }
+}
+
+.callback__form-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.callback__form-title {
+  max-width: 500px;
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: 25px;
+
+  @include vp-1280 {
+    margin: 0 0 45px;
+    font-size: 28px;
+  }
+
+  @include vp-1640 {
+    max-width: unset;
+    margin: 0 0 84px;
+    font-size: 35px;
+  }
+}
+
+.callback__form-list {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.callback__form-item {
+  &:not(:last-child) {
+    margin: 0 0 40px;
+  }
+}
+
+.callback__field {
+  @include input-classic;
+
+}
+
+.callback__accept {
+  @include accept;
+
+  max-width: 500px;
+  margin: 0 0 21px;
+
+  @include vp-1640 {
+    margin: 0 0 40px;
+  }
+}
+
+.callback__form-button {
+  width: 100%;
+}

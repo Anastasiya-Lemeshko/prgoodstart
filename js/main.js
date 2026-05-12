@@ -15363,6 +15363,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_tabs_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/_tabs.js */ "./src/js/components/_tabs.js");
 /* harmony import */ var _components_navigation_swiper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/_navigation-swiper.js */ "./src/js/components/_navigation-swiper.js");
 /* harmony import */ var _components_marquee_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/_marquee.js */ "./src/js/components/_marquee.js");
+/* harmony import */ var _components_scroll_trigger_animation_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/_scroll-trigger-animation.js */ "./src/js/components/_scroll-trigger-animation.js");
+/* harmony import */ var _components_video_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/_video.js */ "./src/js/components/_video.js");
+
+
 
 
 
@@ -15375,6 +15379,8 @@ document.addEventListener('DOMContentLoaded', () => {
   (0,_components_tabs_js__WEBPACK_IMPORTED_MODULE_2__.setTabs)();
   (0,_components_navigation_swiper_js__WEBPACK_IMPORTED_MODULE_3__.setNavigationSwiper)();
   (0,_components_marquee_js__WEBPACK_IMPORTED_MODULE_4__.setMarquee)();
+  (0,_components_scroll_trigger_animation_js__WEBPACK_IMPORTED_MODULE_5__.setScrollAnimation)();
+  (0,_components_video_js__WEBPACK_IMPORTED_MODULE_6__.playVideo)();
 });
 
 /***/ }),
@@ -15575,13 +15581,30 @@ const SLIDER_CONFIG = {
     'tablet_count': 2,
     'desktop_count': 3
   },
-  'marquee': {
-    'mobile_count': 'auto',
-    'tablet_count': 'auto',
-    'desktop_count': 'auto',
-    'freeMode': true,
+  'projects-preview': {
+    'mobile_count': 1,
+    'tablet_count': 1,
+    'desktop_count': 1,
+    'loop': true
+  },
+  'stages': {
+    'mobile_count': 1,
+    'tablet_count': 2,
+    'desktop_count': 2,
+    'loop': true
+  },
+  'blog-preview': {
+    'mobile_count': 1,
+    'tablet_count': 2,
+    'desktop_count': 4,
     'loop': true,
     'desktop_width': SMALL_DESKTOP_WIDTH
+  },
+  'reviews': {
+    'mobile_count': 1,
+    'tablet_count': 2,
+    'desktop_count': 3,
+    'loop': true
   }
 };
 const RANGE_VALUES = {
@@ -15820,6 +15843,7 @@ const setNavigationSwiper = () => {
     const swiperButtons = section.querySelector(`.${sectionClass}swiper-button-container`) ?? section.parentElement.querySelector(`.${sectionClass}swiper-button-container`);
     const sliderConfig = _vars_js__WEBPACK_IMPORTED_MODULE_3__.SLIDER_CONFIG[sectionName] || _vars_js__WEBPACK_IMPORTED_MODULE_3__.SLIDER_CONFIG.default;
     const desktopBreakpoint = sliderConfig.desktop_width ?? _vars_js__WEBPACK_IMPORTED_MODULE_3__.DESKTOP_WIDTH;
+    const desktopBreakpointNumber = sliderConfig.desktop_width ? '1024' : '1366';
     const sectionSection = section.closest('section');
     const tabs = sectionSection ? sectionSection.querySelector('.tabs') : null;
     let swiperContainer = null;
@@ -15862,7 +15886,7 @@ const setNavigationSwiper = () => {
             slidesPerView: sliderConfig.tablet_count,
             autoHeight: sliderConfig.auto_height ?? sliderConfig.tablet_count === 1
           },
-          1024: {
+          desktopBreakpointNumber: {
             slidesPerView: sliderConfig.desktop_count,
             autoHeight: sliderConfig.auto_height ?? sliderConfig.desktop_count === 1,
             speed: 1000,
@@ -16041,6 +16065,42 @@ _vars_js__WEBPACK_IMPORTED_MODULE_1__.DESKTOP_WIDTH.addEventListener('change', (
 
 /***/ }),
 
+/***/ "./src/js/components/_scroll-trigger-animation.js":
+/*!********************************************************!*\
+  !*** ./src/js/components/_scroll-trigger-animation.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setScrollAnimation: () => (/* binding */ setScrollAnimation)
+/* harmony export */ });
+/* harmony import */ var _vars_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../_vars.js */ "./src/js/_vars.js");
+
+const animatedElements = document.querySelectorAll('[data-animation]');
+const getThreshold = () => {
+  if (_vars_js__WEBPACK_IMPORTED_MODULE_0__.DESKTOP_WIDTH.matches) {
+    return 0.6;
+  }
+  return 0.2;
+};
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animated');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: getThreshold()
+});
+const setScrollAnimation = () => {
+  animatedElements.forEach(el => observer.observe(el));
+};
+
+
+/***/ }),
+
 /***/ "./src/js/components/_tabs.js":
 /*!************************************!*\
   !*** ./src/js/components/_tabs.js ***!
@@ -16071,6 +16131,59 @@ const setTabs = () => {
     };
     tabLinks.forEach(tablink => {
       tablink.addEventListener('click', openTabs);
+    });
+  });
+};
+
+
+/***/ }),
+
+/***/ "./src/js/components/_video.js":
+/*!*************************************!*\
+  !*** ./src/js/components/_video.js ***!
+  \*************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   playVideo: () => (/* binding */ playVideo)
+/* harmony export */ });
+const playVideo = () => {
+  const videoWrappers = document.querySelectorAll('.video');
+  if (!videoWrappers || !videoWrappers.length) return;
+  videoWrappers.forEach(wrapper => {
+    const video = wrapper.querySelector('video');
+    const playButton = wrapper.querySelector('.video__button-play');
+    const isNeedControls = wrapper.classList.contains('video--controls');
+    if (!video || !playButton) return;
+    playButton.addEventListener('click', () => {
+      const isVideoPlaying = playButton.classList.contains('playing');
+      if (!isVideoPlaying) {
+        video.play().then(() => {
+          playButton.classList.add('playing');
+          if (isNeedControls) {
+            playButton.classList.add('hidden');
+            video.setAttribute('controls', '');
+          }
+        }).catch(err => {
+          console.warn('Не удалось воспроизвести видео:', err);
+        });
+      } else {
+        video.pause();
+        playButton.classList.remove('playing');
+      }
+    });
+    video.addEventListener('ended', () => {
+      playButton.classList.remove('playing');
+    });
+    video.addEventListener('pause', () => {
+      playButton.classList.remove('playing');
+    });
+    video.addEventListener('play', () => {
+      playButton.classList.add('playing');
+    });
+    video.addEventListener('error', () => {
+      playButton.classList.remove('playing');
     });
   });
 };

@@ -78,10 +78,10 @@ const setNavigationSwiper = () => {
             autoHeight: sliderConfig.auto_height ?? (sliderConfig.tablet_count === 1),
           },
 
-          desktopBreakpointNumber: {
+          [desktopBreakpointNumber]: {
             slidesPerView: sliderConfig.desktop_count,
             autoHeight: sliderConfig.auto_height ?? (sliderConfig.desktop_count === 1),
-            speed: 1000,
+            speed: 1500,
             spaceBetween: sliderConfig.desktop_margin ? sliderConfig.desktop_margin : 10,
           }
         },

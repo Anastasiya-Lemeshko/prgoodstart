@@ -43,6 +43,7 @@
   font-size: 16px;
 
   @include vp-1366 {
+    max-width: 460px;
     font-size: 18px;
     line-height: 1.4;
   }

@@ -4,6 +4,10 @@
   position: relative;
   padding: 40px 0;
   color: var(--white);
+
+  @include vp-1640 {
+    padding: 20px 0 56px;
+  }
 }
 
 .footer__img {
@@ -105,12 +109,11 @@
 
   @include vp-1280 {
     max-width: unset;
-    margin: 0 0 45px;
+    margin: 0 0 48px;
     font-size: 28px;
   }
 
   @include vp-1640 {
-    margin: 0 0 60px;
     font-size: 35px;
   }
 }
@@ -146,13 +149,13 @@
   padding: 20px 0 0;
 
   @include vp-1366 {
-    padding: 35px 0 0;
+    padding: 30px 0 0;
   }
 
   @include vp-1640 {
     display: grid;
     grid-template-columns: 1fr 1168px;
-    gap: 50px;
+    gap: 100px 50px;
   }
 }
 
@@ -212,10 +215,16 @@
 .footer__item {
   &:not(:last-child) {
     margin: 0 0 10px;
+
+    @include vp-1640 {
+      margin: 0 0 6px;
+    }
   }
 }
 
 .footer__link {
+  @include interactive-link-grey;
+
   display: block;
   font-weight: 500;
   font-size: 16px;
@@ -252,6 +261,8 @@
 }
 
 .footer__policy-link {
+  @include interactive-link-grey;
+
   display: block;
   font-weight: 500;
   font-size: 16px;

@@ -24,6 +24,11 @@
   @include vp-1024 {
     gap: 40px;
   }
+
+  @include vp-1640 {
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+  }
 }
 
 .header__logo {
@@ -117,6 +122,10 @@ a.header__logo-img:not([href]) {
     padding: 0;
   }
 
+  @include vp-1640 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   &.is-open {
     padding: 20px;
     visibility: visible;
@@ -171,6 +180,10 @@ a.header__logo-img:not([href]) {
   @include vp-1366 {
     min-height: unset;
     gap: 20px;
+  }
+
+  @include vp-1640 {
+    margin: 0 30px;
   }
 }
 
@@ -237,6 +250,11 @@ a.header__logo-img:not([href]) {
     grid-template-columns: repeat(2, auto);
     align-items: center;
     gap: 20px;
+  }
+
+  @include vp-1640 {
+    justify-self: end;
+    margin: 0;
   }
 }
 

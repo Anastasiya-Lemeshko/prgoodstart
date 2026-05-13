@@ -1,3 +1,5 @@
+import { extendTabsWithAutoplay } from './_tabs-autoplay.js';
+
 const tabs = document.querySelectorAll('.tabs');
 
 const setTabs = () => {
@@ -26,6 +28,10 @@ const setTabs = () => {
     tabLinks.forEach((tablink) => {
       tablink.addEventListener('click', openTabs);
     });
+
+    if (tab.classList.contains('tabs--autoplay')) {
+      extendTabsWithAutoplay(tab, tabLinks, tabContents);
+    };
   });
 };
 

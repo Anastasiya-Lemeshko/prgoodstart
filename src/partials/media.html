@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="media__title title title--big">Работаем с&nbsp;ведущими сми</h2>
     <div class="media__wrapper">
-      <div class="media__tabs tabs">
+      <div class="media__tabs tabs tabs--autoplay">
         <div class="media__tabs-wrapper">
           <ul class="media__tablinks tabs__tablinks accordion" data-accordion="single">
             <li class="media__tablinks-item">
@@ -17,7 +17,7 @@
                 <p>Формат публикаций, который работает на&nbsp;имидж и&nbsp;ассоциации бренда. Глянцевые и&nbsp;нишевые издания формируют восприятие через стиль, визуал и&nbsp;контекст, позволяя закрепить статус, усилить доверие и&nbsp;встроить бренд в&nbsp;культурную повестку.</p>
               </div>
             </li>
-             <li class="media__tablinks-item">
+            <li class="media__tablinks-item">
               <button class="media__tablink tabs__tablink accordion-button" data-tab="radio" type="button">Подкасты и радио</button>
               <div class="media__description accordion-content">
                 <p>Это форматы, где бренд звучит напрямую и&nbsp;без визуального шума. Они позволяют глубже раскрыть экспертизу, донести смыслы и&nbsp;выстроить доверительный диалог с&nbsp;аудиторией, формируя более личное и&nbsp;устойчивое восприятие.</p>
@@ -74,13 +74,21 @@
               <div class="media__swiper" data-swiper="navigation">
                 <ul class="media__swiper-wrapper">
                   <li class="media__slide">
-                    <div class="media__img">
-                      <picture>
-                        <source width="475" height="604" type="image/webp" media="(min-width: 768px)" srcset="img/media/tv-1-tablet@1x.webp 1x, img/media/tv-1-tablet@2x.webp 2x">
-                        <source width="369" height="492" type="image/webp" srcset="img/media/tv-1-mobile@1x.webp 1x, img/media/tv-1-mobile@2x.webp 2x">
-                        <source width="475" height="604" type="image/jpg" media="(min-width: 768px)" srcset="img/media/tv-1-tablet@1x.jpg 1x, img/media/tv-1-tablet@2x.jpg 2x">
-                        <img src="img/media/tv-1-mobile@1x.jpg" srcset="img/media/tv-1-mobile@2x.jpg 2x" width="369" height="492" alt="">
-                      </picture>
+                    <div class="media__img video">
+                      <div class="video__img">
+                        <picture>
+                          <source width="475" height="604" type="image/webp" media="(min-width: 768px)" srcset="img/media/tv-1-tablet@1x.webp 1x, img/media/tv-1-tablet@2x.webp 2x">
+                          <source width="369" height="492" type="image/webp" srcset="img/media/tv-1-mobile@1x.webp 1x, img/media/tv-1-mobile@2x.webp 2x">
+                          <source width="475" height="604" type="image/jpg" media="(min-width: 768px)" srcset="img/media/tv-1-tablet@1x.jpg 1x, img/media/tv-1-tablet@2x.jpg 2x">
+                          <img src="img/media/tv-1-mobile@1x.jpg" srcset="img/media/tv-1-mobile@2x.jpg 2x" width="369" height="492" alt="">
+                        </picture>
+                      </div>
+                      <div class="video__player">
+                        <!-- <video src="img/video/our-production.mp4" loop></video> -->
+                      </div>
+                      <button class="video__button-play" type="button">
+                        <span class="visually-hidden">Начать воспроизведение видео.</span>
+                      </button>
                     </div>
                   </li>
                   <li class="media__slide">
@@ -165,20 +173,20 @@
                   <li class="media__slide">
                     <div class="media__img">
                       <picture>
-                        <source width="475" height="604" type="image/webp" media="(min-width: 768px)" srcset="img/media/tv-1-tablet@1x.webp 1x, img/media/tv-1-tablet@2x.webp 2x">
-                        <source width="369" height="492" type="image/webp" srcset="img/media/tv-1-mobile@1x.webp 1x, img/media/tv-1-mobile@2x.webp 2x">
-                        <source width="475" height="604" type="image/jpg" media="(min-width: 768px)" srcset="img/media/tv-1-tablet@1x.jpg 1x, img/media/tv-1-tablet@2x.jpg 2x">
-                        <img src="img/media/tv-1-mobile@1x.jpg" srcset="img/media/tv-1-mobile@2x.jpg 2x" width="369" height="492" alt="">
+                        <source width="475" height="604" type="image/webp" media="(min-width: 768px)" srcset="img/media/tv-2-tablet@1x.webp 1x, img/media/tv-2-tablet@2x.webp 2x">
+                        <source width="369" height="492" type="image/webp" srcset="img/media/tv-2-mobile@1x.webp 1x, img/media/tv-2-mobile@2x.webp 2x">
+                        <source width="475" height="604" type="image/jpg" media="(min-width: 768px)" srcset="img/media/tv-2-tablet@1x.jpg 1x, img/media/tv-2-tablet@2x.jpg 2x">
+                        <img src="img/media/tv-2-mobile@1x.jpg" srcset="img/media/tv-2-mobile@2x.jpg 2x" width="369" height="492" alt="">
                       </picture>
                     </div>
                   </li>
                   <li class="media__slide">
                     <div class="media__img">
                       <picture>
-                        <source width="475" height="604" type="image/webp" media="(min-width: 768px)" srcset="img/media/tv-2-tablet@1x.webp 1x, img/media/tv-2-tablet@2x.webp 2x">
-                        <source width="369" height="492" type="image/webp" srcset="img/media/tv-2-mobile@1x.webp 1x, img/media/tv-2-mobile@2x.webp 2x">
-                        <source width="475" height="604" type="image/jpg" media="(min-width: 768px)" srcset="img/media/tv-2-tablet@1x.jpg 1x, img/media/tv-2-tablet@2x.jpg 2x">
-                        <img src="img/media/tv-2-mobile@1x.jpg" srcset="img/media/tv-2-mobile@2x.jpg 2x" width="369" height="492" alt="">
+                        <source width="475" height="604" type="image/webp" media="(min-width: 768px)" srcset="img/media/tv-1-tablet@1x.webp 1x, img/media/tv-1-tablet@2x.webp 2x">
+                        <source width="369" height="492" type="image/webp" srcset="img/media/tv-1-mobile@1x.webp 1x, img/media/tv-1-mobile@2x.webp 2x">
+                        <source width="475" height="604" type="image/jpg" media="(min-width: 768px)" srcset="img/media/tv-1-tablet@1x.jpg 1x, img/media/tv-1-tablet@2x.jpg 2x">
+                        <img src="img/media/tv-1-mobile@1x.jpg" srcset="img/media/tv-1-mobile@2x.jpg 2x" width="369" height="492" alt="">
                       </picture>
                     </div>
                   </li>
@@ -254,6 +262,17 @@
                     <div class="media__img">
                       <img src="img/test.jpg">
                       <picture>
+                        <source width="475" height="604" type="image/webp" media="(min-width: 768px)" srcset="img/media/tv-3-tablet@1x.webp 1x, img/media/tv-3-tablet@2x.webp 2x">
+                        <source width="369" height="492" type="image/webp" srcset="img/media/tv-3-mobile@1x.webp 1x, img/media/tv-3-mobile@2x.webp 2x">
+                        <source width="475" height="604" type="image/jpg" media="(min-width: 768px)" srcset="img/media/tv-3-tablet@1x.jpg 1x, img/media/tv-3-tablet@2x.jpg 2x">
+                        <img src="img/media/tv-3-mobile@1x.jpg" srcset="img/media/tv-3-mobile@2x.jpg 2x" width="369" height="492" alt="">
+                      </picture>
+                    </div>
+                  </li>
+                  <li class="media__slide">
+                    <div class="media__img">
+                      <img src="img/test.jpg">
+                      <picture>
                         <source width="475" height="604" type="image/webp" media="(min-width: 768px)" srcset="img/media/tv-1-tablet@1x.webp 1x, img/media/tv-1-tablet@2x.webp 2x">
                         <source width="369" height="492" type="image/webp" srcset="img/media/tv-1-mobile@1x.webp 1x, img/media/tv-1-mobile@2x.webp 2x">
                         <source width="475" height="604" type="image/jpg" media="(min-width: 768px)" srcset="img/media/tv-1-tablet@1x.jpg 1x, img/media/tv-1-tablet@2x.jpg 2x">
@@ -269,17 +288,6 @@
                         <source width="369" height="492" type="image/webp" srcset="img/media/tv-2-mobile@1x.webp 1x, img/media/tv-2-mobile@2x.webp 2x">
                         <source width="475" height="604" type="image/jpg" media="(min-width: 768px)" srcset="img/media/tv-2-tablet@1x.jpg 1x, img/media/tv-2-tablet@2x.jpg 2x">
                         <img src="img/media/tv-2-mobile@1x.jpg" srcset="img/media/tv-2-mobile@2x.jpg 2x" width="369" height="492" alt="">
-                      </picture>
-                    </div>
-                  </li>
-                  <li class="media__slide">
-                    <div class="media__img">
-                      <img src="img/test.jpg">
-                      <picture>
-                        <source width="475" height="604" type="image/webp" media="(min-width: 768px)" srcset="img/media/tv-3-tablet@1x.webp 1x, img/media/tv-3-tablet@2x.webp 2x">
-                        <source width="369" height="492" type="image/webp" srcset="img/media/tv-3-mobile@1x.webp 1x, img/media/tv-3-mobile@2x.webp 2x">
-                        <source width="475" height="604" type="image/jpg" media="(min-width: 768px)" srcset="img/media/tv-3-tablet@1x.jpg 1x, img/media/tv-3-tablet@2x.jpg 2x">
-                        <img src="img/media/tv-3-mobile@1x.jpg" srcset="img/media/tv-3-mobile@2x.jpg 2x" width="369" height="492" alt="">
                       </picture>
                     </div>
                   </li>

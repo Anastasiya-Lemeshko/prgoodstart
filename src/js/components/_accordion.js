@@ -15,8 +15,6 @@ const openVisibleContent = () => {
 };
 
 const openDetails = (evt) => {
-  evt.preventDefault();
-
   const currentButton = evt.target.closest('button');
   const currentContent = currentButton.parentElement.querySelector('.accordion-content');
 
@@ -80,4 +78,4 @@ const recalcOpenedAccordionHeight = () => {
 const debounsedRecalc = debounce(recalcOpenedAccordionHeight, 50);
 window.addEventListener('resize', debounsedRecalc);
 
-export { openVisibleContent, setAccordeonToggles };
+export { openVisibleContent, setAccordeonToggles, openDetails };

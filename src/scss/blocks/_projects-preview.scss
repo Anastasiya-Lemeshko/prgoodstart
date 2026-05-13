@@ -89,6 +89,10 @@
     margin: 0;
   }
 
+  @include vp-1640 {
+    min-height: 620px
+  }
+
   img {
     @include img-bg;
   }
@@ -168,6 +172,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
+    z-index: 1;
   }
 
   &.hidden {

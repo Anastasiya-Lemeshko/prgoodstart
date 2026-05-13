@@ -10,6 +10,10 @@
     grid-template-columns: 400px minmax(0, 1fr);
     gap: 20px;
   }
+
+  @include vp-1640 {
+    grid-template-columns: 455px minmax(0, 1fr);
+  }
 }
 
 .media__tabs-wrapper {
@@ -46,14 +50,26 @@
   color: var(--text-grey);
   background-color: var(--transparent);
   border: none;
-  transition: color 0.3s;
+  transform-origin: left;
+  text-align: left;
+  transition: color 0.3s, transform 0.3s;
 
   @include vp-1366 {
     font-size: 80px;
+    transform: scale(0.8);
+  }
+
+  @include hover-focus {
+    outline: none;
+    color: var(--text-basic);
   }
 
   &.tabs__tablink--active {
     color: var(--accent);
+
+    @include vp-1366 {
+      transform: scale(1);
+    }
   }
 }
 
@@ -82,6 +98,8 @@
 }
 
 .media__link-more {
+  @include interactive-link-grey;
+  
   display: none;
 
   @include vp-1366 {
@@ -167,6 +185,10 @@
   @include vp-550 {
     aspect-ratio: unset;
     height: 500px;
+  }
+
+  @include vp-1640 {
+    height: 604px;
   }
 
   img {

@@ -140,6 +140,7 @@
   --color: var(--text-light);
   --placeholder-color: var(--transparent);
   --font-size: 16px;
+  --placeholder-color: var(--grey-input);
 
   span {
     display: block;
@@ -166,14 +167,18 @@
       outline: none;
     }
 
+    @include hover {
+      --placeholder-color: var(--white);
+    }
+
     &::placeholder {
       font-weight: 400;
       font-size: 18px;
-      color: var(--grey-input);
+      color: var(--placeholder-color);
       transform-origin: top;
       transform: var(--transform);
       opacity: var(--opacity);
-      transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+      transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
     }
   }
 

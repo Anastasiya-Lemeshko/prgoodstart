@@ -6,7 +6,6 @@ const playVideo = () => {
   videoWrappers.forEach((wrapper) => {
     const video = wrapper.querySelector('video');
     const playButton = wrapper.querySelector('.video__button-play');
-    const isNeedControls = wrapper.classList.contains('video--controls');
 
     if (!video || !playButton) return;
 
@@ -17,10 +16,8 @@ const playVideo = () => {
         video.play()
           .then(() => {
             playButton.classList.add('playing');
-            if (isNeedControls) {
-              playButton.classList.add('hidden');
-              video.setAttribute('controls', '');
-            }
+            playButton.classList.add('hidden');
+            video.setAttribute('controls', '');
           })
           .catch(err => {
             console.warn('Не удалось воспроизвести видео:', err);

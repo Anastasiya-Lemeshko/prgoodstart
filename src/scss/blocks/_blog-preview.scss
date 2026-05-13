@@ -38,6 +38,8 @@
 .blog-preview__card {
   @include slide-container;
 
+  --img-scale: scale(1);
+
   padding: 20px 12px;
   color: var(--bg-light);
   background-color: var(--text-basic);
@@ -58,6 +60,12 @@
 
   @include vp-1640 {
     min-height: 512px;
+  }
+
+  @include hover-focus {
+    outline: none;
+
+    --img-scale: scale(1.1);
   }
 }
 
@@ -100,6 +108,7 @@
 
 .blog-preview__img {
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: 415px;
   margin: 0 0 10px;
@@ -110,6 +119,9 @@
 
   img {
     @include img-bg;
+
+    transform: var(--img-scale);
+    transition: transform 0.5s;
   }
 }
 

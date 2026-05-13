@@ -68,11 +68,12 @@
 }
 
 @mixin interactive-button-dark {
-  transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+  transition: background-color 0.3s, color 0.3s, opacity 0.3s, border 0.3s;
 
   @include hover-focus {
     color: var(--white);
     background-color: var(--text-basic);
+    border: 1px solid var(--text-basic);
     outline: none;
   }
 
@@ -82,12 +83,12 @@
 }
 
 @mixin interactive-button-accent {
-  transition: background-color 0.3s, opacity 0.3s;
+  transition: background-color 0.3s, opacity 0.3s, border 0.3s;
 
   @include hover-focus {
     color: var(--white);
-    border: 1px solid var(--accent);
     background-color: var(--accent);
+    border: 1px solid var(--accent);
     outline: none;
   }
 

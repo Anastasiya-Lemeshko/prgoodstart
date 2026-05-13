@@ -84,7 +84,7 @@
   margin: 0;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.16;
+  line-height: 1.3;
   color: var(--text-dark);
   background-color: var(--bg-light);
   -webkit-tap-highlight-color: transparent;
@@ -672,19 +672,21 @@ form {
   pointer-events: none;
 }
 .button--light {
-  -webkit-transition: background-color 0.3s, color 0.3s, opacity 0.3s;
-  transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+  -webkit-transition: background-color 0.3s, color 0.3s, opacity 0.3s, border 0.3s;
+  transition: background-color 0.3s, color 0.3s, opacity 0.3s, border 0.3s;
 }
 @media (hover: hover) {
   .button--light:hover {
     color: var(--white);
     background-color: var(--text-basic);
+    border: 1px solid var(--text-basic);
     outline: none;
   }
 }
 .button--light:focus-visible {
   color: var(--white);
   background-color: var(--text-basic);
+  border: 1px solid var(--text-basic);
   outline: none;
 }
 .button--light:active {
@@ -693,23 +695,24 @@ form {
 .button--light {
   color: var(--text-basic);
   background-color: var(--white);
+  border: 1px solid var(--white);
 }
 .button--light-to-accent {
-  -webkit-transition: background-color 0.3s, opacity 0.3s;
-  transition: background-color 0.3s, opacity 0.3s;
+  -webkit-transition: background-color 0.3s, opacity 0.3s, border 0.3s;
+  transition: background-color 0.3s, opacity 0.3s, border 0.3s;
 }
 @media (hover: hover) {
   .button--light-to-accent:hover {
     color: var(--white);
-    border: 1px solid var(--accent);
     background-color: var(--accent);
+    border: 1px solid var(--accent);
     outline: none;
   }
 }
 .button--light-to-accent:focus-visible {
   color: var(--white);
-  border: 1px solid var(--accent);
   background-color: var(--accent);
+  border: 1px solid var(--accent);
   outline: none;
 }
 .button--light-to-accent:active {
@@ -718,23 +721,24 @@ form {
 .button--light-to-accent {
   color: var(--text-basic);
   background-color: var(--white);
+  border: 1px solid var(--white);
 }
 .button--dark {
-  -webkit-transition: background-color 0.3s, opacity 0.3s;
-  transition: background-color 0.3s, opacity 0.3s;
+  -webkit-transition: background-color 0.3s, opacity 0.3s, border 0.3s;
+  transition: background-color 0.3s, opacity 0.3s, border 0.3s;
 }
 @media (hover: hover) {
   .button--dark:hover {
     color: var(--white);
-    border: 1px solid var(--accent);
     background-color: var(--accent);
+    border: 1px solid var(--accent);
     outline: none;
   }
 }
 .button--dark:focus-visible {
   color: var(--white);
-  border: 1px solid var(--accent);
   background-color: var(--accent);
+  border: 1px solid var(--accent);
   outline: none;
 }
 .button--dark:active {
@@ -743,21 +747,24 @@ form {
 .button--dark {
   color: var(--white);
   background-color: var(--text-basic);
+  border: 1px solid var(--text-basic);
 }
 .button--accent {
-  -webkit-transition: background-color 0.3s, color 0.3s, opacity 0.3s;
-  transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+  -webkit-transition: background-color 0.3s, color 0.3s, opacity 0.3s, border 0.3s;
+  transition: background-color 0.3s, color 0.3s, opacity 0.3s, border 0.3s;
 }
 @media (hover: hover) {
   .button--accent:hover {
     color: var(--white);
     background-color: var(--text-basic);
+    border: 1px solid var(--text-basic);
     outline: none;
   }
 }
 .button--accent:focus-visible {
   color: var(--white);
   background-color: var(--text-basic);
+  border: 1px solid var(--text-basic);
   outline: none;
 }
 .button--accent:active {
@@ -766,6 +773,7 @@ form {
 .button--accent {
   color: var(--white);
   background-color: var(--accent);
+  border: 1px solid var(--accent);
 }
 
 .button-swiper {
@@ -1320,6 +1328,13 @@ span.breadcrumbs__link {
     gap: 40px;
   }
 }
+@media (min-width: 1640px) {
+  .header__wrapper {
+    -ms-grid-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+  }
+}
 
 .header__logo {
   width: 100%;
@@ -1493,6 +1508,12 @@ a.header__logo-img:not([href]) {
     padding: 0;
   }
 }
+@media (min-width: 1640px) {
+  .header__menu {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .header__menu.is-open {
   padding: 20px;
   visibility: visible;
@@ -1592,6 +1613,11 @@ a.header__logo-img:not([href]) {
     gap: 20px;
   }
 }
+@media (min-width: 1640px) {
+  .header__menu-list {
+    margin: 0 30px;
+  }
+}
 
 .header__menu-item {
   position: relative;
@@ -1681,6 +1707,13 @@ a.header__logo-img:not([href]) {
     -ms-flex-align: center;
     align-items: center;
     gap: 20px;
+  }
+}
+@media (min-width: 1640px) {
+  .header__contacts {
+    -ms-grid-column-align: end;
+    justify-self: end;
+    margin: 0;
   }
 }
 
@@ -1948,6 +1981,12 @@ a.header__logo-img:not([href]) {
     gap: 20px;
   }
 }
+@media (min-width: 1640px) {
+  .media__tabs {
+    -ms-grid-columns: 455px minmax(0, 1fr);
+    grid-template-columns: 455px minmax(0, 1fr);
+  }
+}
 
 .media__tabs-wrapper {
   margin: 0 0 0;
@@ -1994,16 +2033,42 @@ a.header__logo-img:not([href]) {
   color: var(--text-grey);
   background-color: var(--transparent);
   border: none;
-  -webkit-transition: color 0.3s;
-  transition: color 0.3s;
+  -webkit-transform-origin: left;
+  -ms-transform-origin: left;
+  transform-origin: left;
+  text-align: left;
+  -webkit-transition: color 0.3s, -webkit-transform 0.3s;
+  transition: color 0.3s, -webkit-transform 0.3s;
+  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s, transform 0.3s, -webkit-transform 0.3s;
 }
 @media (min-width: 1366px) {
   .media__tablink {
     font-size: 80px;
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
   }
+}
+@media (hover: hover) {
+  .media__tablink:hover {
+    outline: none;
+    color: var(--text-basic);
+  }
+}
+.media__tablink:focus-visible {
+  outline: none;
+  color: var(--text-basic);
 }
 .media__tablink.tabs__tablink--active {
   color: var(--accent);
+}
+@media (min-width: 1366px) {
+  .media__tablink.tabs__tablink--active {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .media__description {
@@ -2031,6 +2096,23 @@ a.header__logo-img:not([href]) {
   }
 }
 
+.media__link-more {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+@media (hover: hover) {
+  .media__link-more:hover {
+    color: var(--grey-hover);
+    outline: none;
+  }
+}
+.media__link-more:focus-visible {
+  color: var(--grey-hover);
+  outline: none;
+}
+.media__link-more:active {
+  color: var(--grey);
+}
 .media__link-more {
   display: none;
 }
@@ -2148,6 +2230,11 @@ a.header__logo-img:not([href]) {
   .media__img {
     aspect-ratio: unset;
     height: 500px;
+  }
+}
+@media (min-width: 1640px) {
+  .media__img {
+    height: 604px;
   }
 }
 .media__img img {
@@ -2637,7 +2724,7 @@ a.header__logo-img:not([href]) {
 @media (min-width: 1640px) {
   .clients__form-title {
     max-width: 700px;
-    margin: 0 0 84px;
+    padding: 24px 0 18px;
     font-size: 35px;
   }
 }
@@ -2658,6 +2745,7 @@ a.header__logo-img:not([href]) {
   --color: var(--text-light);
   --placeholder-color: var(--transparent);
   --font-size: 16px;
+  --placeholder-color: var(--grey-input);
 }
 .clients__field span {
   display: block;
@@ -2683,58 +2771,63 @@ a.header__logo-img:not([href]) {
 .clients__field input:focus-visible {
   outline: none;
 }
+@media (hover: hover) {
+  .clients__field input:hover {
+    --placeholder-color: var(--white);
+  }
+}
 .clients__field input::-webkit-input-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -webkit-transform-origin: top;
   transform-origin: top;
   -webkit-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -webkit-transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .clients__field input::-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   transform-origin: top;
   transform: var(--transform);
   opacity: var(--opacity);
-  -moz-transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -moz-transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
 }
 .clients__field input:-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -ms-transform-origin: top;
   transform-origin: top;
   -ms-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
 }
 .clients__field input::-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -ms-transform-origin: top;
   transform-origin: top;
   -ms-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
 }
 .clients__field input::placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -webkit-transform-origin: top;
   -ms-transform-origin: top;
   transform-origin: top;
@@ -2742,10 +2835,10 @@ a.header__logo-img:not([href]) {
   -ms-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -webkit-transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .clients__field:has(input:focus), .clients__field:has(input:focus-visible), .clients__field:has(textarea:focus), .clients__field:has(textarea:focus-visible) {
   --transform: scaleY(0) translateY(-5px);
@@ -2993,6 +3086,11 @@ a.header__logo-img:not([href]) {
     margin: 0;
   }
 }
+@media (min-width: 1640px) {
+  .projects-preview__img {
+    min-height: 620px;
+  }
+}
 .projects-preview__img img {
   position: absolute;
   top: 0;
@@ -3089,6 +3187,7 @@ a.header__logo-img:not([href]) {
     position: absolute;
     bottom: 0;
     right: 0;
+    z-index: 1;
   }
 }
 .projects-preview__swiper-button-container.hidden {
@@ -3363,6 +3462,7 @@ a.header__logo-img:not([href]) {
 }
 @media (min-width: 1366px) {
   .features__header-text {
+    max-width: 460px;
     font-size: 18px;
     line-height: 1.4;
   }
@@ -3683,6 +3783,7 @@ a.header__logo-img:not([href]) {
   --color: var(--text-light);
   --placeholder-color: var(--transparent);
   --font-size: 16px;
+  --placeholder-color: var(--grey-input);
 }
 .callback__field span {
   display: block;
@@ -3708,58 +3809,63 @@ a.header__logo-img:not([href]) {
 .callback__field input:focus-visible {
   outline: none;
 }
+@media (hover: hover) {
+  .callback__field input:hover {
+    --placeholder-color: var(--white);
+  }
+}
 .callback__field input::-webkit-input-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -webkit-transform-origin: top;
   transform-origin: top;
   -webkit-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -webkit-transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .callback__field input::-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   transform-origin: top;
   transform: var(--transform);
   opacity: var(--opacity);
-  -moz-transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -moz-transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
 }
 .callback__field input:-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -ms-transform-origin: top;
   transform-origin: top;
   -ms-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
 }
 .callback__field input::-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -ms-transform-origin: top;
   transform-origin: top;
   -ms-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
 }
 .callback__field input::placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -webkit-transform-origin: top;
   -ms-transform-origin: top;
   transform-origin: top;
@@ -3767,10 +3873,10 @@ a.header__logo-img:not([href]) {
   -ms-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -webkit-transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .callback__field:has(input:focus), .callback__field:has(input:focus-visible), .callback__field:has(textarea:focus), .callback__field:has(textarea:focus-visible) {
   --transform: scaleY(0) translateY(-5px);
@@ -3959,6 +4065,7 @@ a.header__logo-img:not([href]) {
   flex-grow: 1;
   width: 100%;
   overflow: hidden;
+  --img-scale: scale(1);
   padding: 20px 12px;
   color: var(--bg-light);
   background-color: var(--text-basic);
@@ -3986,6 +4093,16 @@ a.header__logo-img:not([href]) {
   .blog-preview__card {
     min-height: 512px;
   }
+}
+@media (hover: hover) {
+  .blog-preview__card:hover {
+    outline: none;
+    --img-scale: scale(1.1);
+  }
+}
+.blog-preview__card:focus-visible {
+  outline: none;
+  --img-scale: scale(1.1);
 }
 
 .blog-preview__name {
@@ -4030,6 +4147,7 @@ a.header__logo-img:not([href]) {
 
 .blog-preview__img {
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: 415px;
   margin: 0 0 10px;
@@ -4048,6 +4166,13 @@ a.header__logo-img:not([href]) {
   background-color: var(--text-light);
   -o-object-fit: cover;
   object-fit: cover;
+  -webkit-transform: var(--img-scale);
+  -ms-transform: var(--img-scale);
+  transform: var(--img-scale);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 .blog-preview__bottom {
@@ -4190,13 +4315,18 @@ a.header__logo-img:not([href]) {
 }
 @media (min-width: 1640px) {
   .reviews {
-    padding: 30px 0 108px;
+    padding: 30px 0 84px;
   }
 }
 
 @media (min-width: 1366px) {
   .reviews__title {
     max-width: calc(100% - 200px);
+  }
+}
+@media (min-width: 1640px) {
+  .reviews__title {
+    font-size: 80px;
   }
 }
 
@@ -4364,6 +4494,11 @@ a.header__logo-img:not([href]) {
   padding: 40px 0;
   color: var(--white);
 }
+@media (min-width: 1640px) {
+  .footer {
+    padding: 20px 0 56px;
+  }
+}
 
 .footer__img {
   position: absolute;
@@ -4505,13 +4640,12 @@ a.header__logo-img:not([href]) {
 @media (min-width: 1280px) {
   .footer__form-title {
     max-width: unset;
-    margin: 0 0 45px;
+    margin: 0 0 48px;
     font-size: 28px;
   }
 }
 @media (min-width: 1640px) {
   .footer__form-title {
-    margin: 0 0 60px;
     font-size: 35px;
   }
 }
@@ -4532,6 +4666,7 @@ a.header__logo-img:not([href]) {
   --color: var(--text-light);
   --placeholder-color: var(--transparent);
   --font-size: 16px;
+  --placeholder-color: var(--grey-input);
 }
 .footer__field span {
   display: block;
@@ -4557,58 +4692,63 @@ a.header__logo-img:not([href]) {
 .footer__field input:focus-visible {
   outline: none;
 }
+@media (hover: hover) {
+  .footer__field input:hover {
+    --placeholder-color: var(--white);
+  }
+}
 .footer__field input::-webkit-input-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -webkit-transform-origin: top;
   transform-origin: top;
   -webkit-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -webkit-transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .footer__field input::-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   transform-origin: top;
   transform: var(--transform);
   opacity: var(--opacity);
-  -moz-transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -moz-transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
 }
 .footer__field input:-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -ms-transform-origin: top;
   transform-origin: top;
   -ms-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
 }
 .footer__field input::-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -ms-transform-origin: top;
   transform-origin: top;
   -ms-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
+  -ms-transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
 }
 .footer__field input::placeholder {
   font-weight: 400;
   font-size: 18px;
-  color: var(--grey-input);
+  color: var(--placeholder-color);
   -webkit-transform-origin: top;
   -ms-transform-origin: top;
   transform-origin: top;
@@ -4616,10 +4756,10 @@ a.header__logo-img:not([href]) {
   -ms-transform: var(--transform);
   transform: var(--transform);
   opacity: var(--opacity);
-  -webkit-transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
-  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, visibility 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .footer__field:has(input:focus), .footer__field:has(input:focus-visible), .footer__field:has(textarea:focus), .footer__field:has(textarea:focus-visible) {
   --transform: scaleY(0) translateY(-5px);
@@ -4751,7 +4891,7 @@ a.header__logo-img:not([href]) {
 }
 @media (min-width: 1366px) {
   .footer__bottom {
-    padding: 35px 0 0;
+    padding: 30px 0 0;
   }
 }
 @media (min-width: 1640px) {
@@ -4760,7 +4900,7 @@ a.header__logo-img:not([href]) {
     display: grid;
     -ms-grid-columns: 1fr 1168px;
     grid-template-columns: 1fr 1168px;
-    gap: 50px;
+    gap: 100px 50px;
   }
 }
 
@@ -4839,7 +4979,29 @@ a.header__logo-img:not([href]) {
 .footer__item:not(:last-child) {
   margin: 0 0 10px;
 }
+@media (min-width: 1640px) {
+  .footer__item:not(:last-child) {
+    margin: 0 0 6px;
+  }
+}
 
+.footer__link {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+@media (hover: hover) {
+  .footer__link:hover {
+    color: var(--grey-hover);
+    outline: none;
+  }
+}
+.footer__link:focus-visible {
+  color: var(--grey-hover);
+  outline: none;
+}
+.footer__link:active {
+  color: var(--grey);
+}
 .footer__link {
   display: block;
   font-weight: 500;
@@ -4879,6 +5041,23 @@ a.header__logo-img:not([href]) {
   }
 }
 
+.footer__policy-link {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+@media (hover: hover) {
+  .footer__policy-link:hover {
+    color: var(--grey-hover);
+    outline: none;
+  }
+}
+.footer__policy-link:focus-visible {
+  color: var(--grey-hover);
+  outline: none;
+}
+.footer__policy-link:active {
+  color: var(--grey);
+}
 .footer__policy-link {
   display: block;
   font-weight: 500;

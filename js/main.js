@@ -15549,6 +15549,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   SLIDER_CONFIG: () => (/* binding */ SLIDER_CONFIG),
 /* harmony export */   SMALL_DESKTOP_WIDTH: () => (/* binding */ SMALL_DESKTOP_WIDTH),
 /* harmony export */   TABLET_WIDTH: () => (/* binding */ TABLET_WIDTH),
+/* harmony export */   TABS_DELAY: () => (/* binding */ TABS_DELAY),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -15562,6 +15563,7 @@ const SMALL_DESKTOP_WIDTH = window.matchMedia('(min-width: 1024px)');
 const DESKTOP_WIDTH = window.matchMedia('(min-width: 1366px)');
 const HEADER_FIXED_OFFSET = 500;
 const MODAL_TIMER = 3000000;
+const TABS_DELAY = 5000;
 const MODAL_CONTENT = {
   'title': {
     'individual-calc': 'Получите индивидуальный расчёт под ваш проект',
@@ -15671,6 +15673,7 @@ const COUNT_GRID_COLUMNS = {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   openDetails: () => (/* binding */ openDetails),
 /* harmony export */   openVisibleContent: () => (/* binding */ openVisibleContent),
 /* harmony export */   setAccordeonToggles: () => (/* binding */ setAccordeonToggles)
 /* harmony export */ });
@@ -15688,7 +15691,6 @@ const openVisibleContent = () => {
   });
 };
 const openDetails = evt => {
-  evt.preventDefault();
   const currentButton = evt.target.closest('button');
   const currentContent = currentButton.parentElement.querySelector('.accordion-content');
   const accordionContainer = currentButton.closest('.accordion');
@@ -15919,10 +15921,10 @@ const setNavigationSwiper = () => {
             slidesPerView: sliderConfig.tablet_count,
             autoHeight: sliderConfig.auto_height ?? sliderConfig.tablet_count === 1
           },
-          desktopBreakpointNumber: {
+          [desktopBreakpointNumber]: {
             slidesPerView: sliderConfig.desktop_count,
             autoHeight: sliderConfig.auto_height ?? sliderConfig.desktop_count === 1,
-            speed: 1000,
+            speed: 1500,
             spaceBetween: sliderConfig.desktop_margin ? sliderConfig.desktop_margin : 10
           }
         },
@@ -16134,6 +16136,59 @@ const setScrollAnimation = () => {
 
 /***/ }),
 
+/***/ "./src/js/components/_tabs-autoplay.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/_tabs-autoplay.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   extendTabsWithAutoplay: () => (/* binding */ extendTabsWithAutoplay)
+/* harmony export */ });
+/* harmony import */ var _vars_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../_vars.js */ "./src/js/_vars.js");
+/* harmony import */ var _accordion_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_accordion.js */ "./src/js/components/_accordion.js");
+
+
+const extendTabsWithAutoplay = (tab, tabLinks, tabContents) => {
+  const isAccordion = tab.querySelector('.accordion');
+  let intervalId = null;
+  let currentIndex = 0;
+
+  // функция при переключении таба
+  const activateTab = index => {
+    const targetLink = tabLinks[index];
+    const section = targetLink.dataset.tab;
+    tabLinks.forEach(link => link.classList.remove('tabs__tablink--active'));
+    tabContents.forEach(content => content.classList.remove('tabs__tabcontent--active'));
+    tab.querySelector(`[data-tab-content="${section}"]`).classList.add('tabs__tabcontent--active');
+    targetLink.classList.add('tabs__tablink--active');
+  };
+
+  // автоматическое переключение
+  intervalId = setInterval(() => {
+    currentIndex = (currentIndex + 1) % tabLinks.length;
+    activateTab(currentIndex);
+    if (isAccordion) {
+      const currentButton = tabLinks[currentIndex];
+      const fakeEvent = {
+        target: currentButton
+      };
+      (0,_accordion_js__WEBPACK_IMPORTED_MODULE_1__.openDetails)(fakeEvent);
+    }
+  }, _vars_js__WEBPACK_IMPORTED_MODULE_0__.TABS_DELAY);
+
+  // остановка автоматического переключения
+  tabLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      clearInterval(intervalId);
+    });
+  });
+};
+
+
+/***/ }),
+
 /***/ "./src/js/components/_tabs.js":
 /*!************************************!*\
   !*** ./src/js/components/_tabs.js ***!
@@ -16144,6 +16199,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   setTabs: () => (/* binding */ setTabs)
 /* harmony export */ });
+/* harmony import */ var _tabs_autoplay_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_tabs-autoplay.js */ "./src/js/components/_tabs-autoplay.js");
+
 const tabs = document.querySelectorAll('.tabs');
 const setTabs = () => {
   if (!tabs || !tabs.length) return;
@@ -16165,6 +16222,10 @@ const setTabs = () => {
     tabLinks.forEach(tablink => {
       tablink.addEventListener('click', openTabs);
     });
+    if (tab.classList.contains('tabs--autoplay')) {
+      (0,_tabs_autoplay_js__WEBPACK_IMPORTED_MODULE_0__.extendTabsWithAutoplay)(tab, tabLinks, tabContents);
+    }
+    ;
   });
 };
 
@@ -16187,17 +16248,14 @@ const playVideo = () => {
   videoWrappers.forEach(wrapper => {
     const video = wrapper.querySelector('video');
     const playButton = wrapper.querySelector('.video__button-play');
-    const isNeedControls = wrapper.classList.contains('video--controls');
     if (!video || !playButton) return;
     playButton.addEventListener('click', () => {
       const isVideoPlaying = playButton.classList.contains('playing');
       if (!isVideoPlaying) {
         video.play().then(() => {
           playButton.classList.add('playing');
-          if (isNeedControls) {
-            playButton.classList.add('hidden');
-            video.setAttribute('controls', '');
-          }
+          playButton.classList.add('hidden');
+          video.setAttribute('controls', '');
         }).catch(err => {
           console.warn('Не удалось воспроизвести видео:', err);
         });

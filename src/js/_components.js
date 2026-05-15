@@ -6,6 +6,8 @@ import { setMarquee } from './components/_marquee.js';
 import { setScrollAnimation } from './components/_scroll-trigger-animation.js';
 import { playVideo } from './components/_video.js';
 import { moveFooter } from './components/_move-footer.js';
+import { setModals } from './components/_modal.js';
+import { setTextareaHeight } from './components/_textarea-height.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   toggleBurgerMenu();
@@ -17,4 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setScrollAnimation();
   playVideo();
   moveFooter();
+  setModals();
+  setTextareaHeight();
 });
+

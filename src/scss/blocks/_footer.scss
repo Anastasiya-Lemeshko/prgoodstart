@@ -80,11 +80,17 @@
 }
 
 .footer__mail {
+  @include interactive-link-grey;
+
   margin: 0 0 40px;
 
   @include vp-1366 {
     margin: 0;
   }
+}
+
+.footer__tel {
+  @include interactive-link-grey;
 }
 
 .footer__form {
@@ -203,10 +209,6 @@
 
     @include vp-768 {
       grid-area: unset;
-      justify-self: end;
-    }
-
-    @include vp-1640 {
       justify-self: start;
     }
   }

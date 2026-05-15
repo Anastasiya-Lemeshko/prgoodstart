@@ -15,9 +15,9 @@
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
     content: "";
-    width: 18px;
+    width: 90%;
     height: 1px;
-    background-color: var(--white);
+    background-color: var(--text-basic);
     z-index: 5;
   }
 

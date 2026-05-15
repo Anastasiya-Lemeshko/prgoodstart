@@ -44,6 +44,9 @@
   padding: 18px 12px 20px;
   color: var(--text-basic);
   background-color: var(--bg-light);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 1s, opacity 1s;
 
   @include vp-768 {
     margin: 0;
@@ -52,6 +55,11 @@
   @include vp-1280 {
     height: 100%;
     padding: 16px 15px 20px;
+  }
+
+  &.animated {
+    transform: translateY(0);
+    opacity: 1;
   }
 
   &:nth-of-type(4n + 3) {
@@ -64,6 +72,10 @@
     @include vp-1640 {
       width: calc((100% - 2 * 20px) / 3);
     }
+  }
+
+  &:nth-of-type(2n) {
+    transition-delay: 0.5s;
   }
 }
 

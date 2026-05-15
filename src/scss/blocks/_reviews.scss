@@ -125,6 +125,8 @@
 .reviews__swiper-button-container {
   @include swiper-button-position;
 
+  justify-content: flex-end;
+
   &.hidden {
     display: none;
   }

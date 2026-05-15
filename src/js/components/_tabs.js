@@ -1,7 +1,8 @@
 import { extendTabsWithAutoplay } from './_tabs-autoplay.js';
+import { DESKTOP_WIDTH } from "./../_vars.js";
 
 const tabs = document.querySelectorAll('.tabs');
-
+ 
 const setTabs = () => {
   if (!tabs || !tabs.length) return;
 
@@ -29,7 +30,7 @@ const setTabs = () => {
       tablink.addEventListener('click', openTabs);
     });
 
-    if (tab.classList.contains('tabs--autoplay')) {
+    if (tab.classList.contains('tabs--autoplay') && DESKTOP_WIDTH.matches) {
       extendTabsWithAutoplay(tab, tabLinks, tabContents);
     };
   });

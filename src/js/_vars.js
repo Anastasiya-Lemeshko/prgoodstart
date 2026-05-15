@@ -15,6 +15,8 @@ export const MODAL_TIMER = 3000000;
 
 export const TABS_DELAY = 5000;
 
+export const TEXTAREA_LINEHEIGHT = 22;
+
 export const MODAL_CONTENT = {
   'title': {
     'individual-calc': 'Получите индивидуальный расчёт под ваш проект',

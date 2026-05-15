@@ -13,12 +13,12 @@
   align-items: center;
   cursor: pointer;
 
-  @include vp-1366 {
+  @include vp-1024 {
     --font-size: 18px;
   }
 
   &:has(span.visually-hidden) {
-    --placeholder-color: var(--text-light);
+    --placeholder-color: var(--text-grey);
   }
 
   &:has(input:focus),
@@ -68,7 +68,7 @@
     color: var(--color);
     background-color: var(--transparent);
     border: none;
-    border-bottom: 1px solid var(--grey-dark);
+    border-bottom: 1px solid var(--bg-dark);
     transition: background-color 0.3s;
     cursor: pointer;
 
@@ -88,11 +88,26 @@
   }
 
   input {
-    height: 43px;
+    height: 28px;
+
+    @include vp-1024 {
+      height: 45px;
+    }
   }
 
   textarea {
+    padding: 7px 0;
     resize: none;
+  }
+
+  &--textarea {
+    --placeholder-color: var(--text-grey);
+
+    span:not(.visually-hidden) {
+      line-height: 22px;
+      color: var(--transparent);
+      z-index: -1;
+    }
   }
 
   &:has(input:disabled) {
@@ -104,7 +119,8 @@
   }
 
   &--error {
-    --color: var(--error);
+    --color: var(--accent);
+    --placeholder-color: var(--accent);
   }
 }
 

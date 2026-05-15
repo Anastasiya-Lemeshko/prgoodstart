@@ -1,0 +1,105 @@
+<div class="modal modal-standard modal--questions" data-modal="questions">
+  <div class="modal__container modal-standard__container">
+    <button class="modal__close-button modal-close">
+      <span class="visually-hidden">Закрыть.</span>
+    </button>
+    <div class="modal-standard__wrapper">
+      <p class="modal-standard__title title" data-modal-title>Ответьте на&nbsp;вопросы</p>
+      <form class="modal-standard__form" action="form.php" method="post">
+        <label class="modal-standard__field">
+          <span class="visually-hidden">Контактный номер телефона</span>
+          <input class="modal-standard__input" type="tel" name="phone" placeholder="Контактный номер телефона*">
+        </label>
+        <label class="modal-standard__field">
+          <span class="visually-hidden">Контактный Email</span>
+          <input class="modal-standard__input" type="mail" name="mail" placeholder="Контактный Email">
+        </label>
+        <label class="modal-standard__field modal-standard__field--textarea textarea">
+          <span>Кто вы? (Название компании, сфера деятельности)</span>
+          <textarea class="modal-standard__input" name="about" placeholder="Кто вы? (Название компании, сфера деятельности)"></textarea>
+        </label>
+        <label class="modal-standard__field modal-standard__field--textarea textarea">
+          <span>В чём ваша уникальность? (сколько лет вы на рынке, особенности ваших товаров и/или услуг, личные/профессиональные достижения вас или вашей компании.)</span>
+          <textarea class="modal-standard__input" name="about" placeholder="В чём ваша уникальность? (сколько лет вы на рынке, особенности ваших товаров и/или услуг, личные/профессиональные достижения вас или вашей компании.)"></textarea>
+        </label>
+        <label class="modal-standard__field modal-standard__field--textarea textarea">
+          <span>Какая у вас текущая PR-цель? (Например: повысить узнаваемость, привлечь инвесторов, запустить продукт, улучшить репутацию и т.д.)</span>
+          <textarea class="modal-standard__input" name="about" placeholder="Какая у вас текущая PR-цель? (Например: повысить узнаваемость, привлечь инвесторов, запустить продукт, улучшить репутацию и т.д.)"></textarea>
+        </label>
+        <label class="modal-standard__field modal-standard__field--textarea textarea">
+          <span>Кто ваша целевая аудитория? (Для кого вы делаете продукт/услугу? Возраст, профессия, интересы, регион — всё, что важно.)</span>
+          <textarea class="modal-standard__input" name="about" placeholder="Кто ваша целевая аудитория? (Для кого вы делаете продукт/услугу? Возраст, профессия, интересы, регион — всё, что важно.)"></textarea>
+        </label>
+        <label class="modal-standard__field modal-standard__field--textarea textarea">
+          <span>Есть ли у вас уже история в медиа и пиаре? (Упоминания в СМИ, блогеры, соцсети, пресс-релизы — что уже делали и что работает?)</span>
+          <textarea class="modal-standard__input" name="about" placeholder="Есть ли у вас уже история в медиа и пиаре? (Упоминания в СМИ, блогеры, соцсети, пресс-релизы — что уже делали и что работает?)"></textarea>
+        </label>
+        <label class="modal-standard__field modal-standard__field--textarea textarea">
+          <span>Какой у вас бюджет и сроки? (Ориентировочный бюджет на PR и когда вы хотите увидеть первые результаты?)</span>
+          <textarea class="modal-standard__input" name="about" placeholder="Какой у вас бюджет и сроки? (Ориентировочный бюджет на PR и когда вы хотите увидеть первые результаты?)"></textarea>
+        </label>
+        <div class="modal-standard__form-bottom">
+          <label class="modal-standard__accept">
+            <span class="modal-standard__label">Я&nbsp;даю согласие на&nbsp;обработку персональных данных в соответствии с&nbsp;Политикой конфиденциальности.</span>
+            <input class="visually-hidden" type="checkbox" name="accept">
+          </label>
+          <button class="modal-standard__form-button button button--dark" type="submit">Отправить +</button>
+        </div>
+        <div class="modal-standard__form-error-wrapper form-error-message">
+          <p class="modal-standard__form-error hidden"></p>
+        </div>
+      </form>
+      <div class="modal-standard__contacts">
+        <div class="modal-standard__contacts-top">
+          <div class="modal-standard__contacts-group">
+            <p class="modal-standard__contacts-name">Почта</p>
+            <a class="modal-standard__contacts-link" href="mailto:kristina@rodnova.com">kristina@rodnova.com</a>
+          </div>
+          <div class="modal-standard__contacts-group">
+            <p class="modal-standard__contacts-name">Телефон</p>
+            <a class="modal-standard__contacts-link" href="tel:+79035145040">+7&nbsp;903&nbsp;514&nbsp;50&nbsp;40</a>
+          </div>
+          <div class="modal-standard__contacts-group">
+            <ul class="modal-standard__socials">
+              <li class="modal-standard__social-item">
+                <a class="modal-standard__social-link modal-standard__social-link--max" href="#" target="_blank" rel="noreferrer noopener">
+                  <span class="visually-hidden">Max</span>
+                </a>
+              </li>
+              <li class="modal-standard__social-item">
+                <a class="modal-standard__social-link modal-standard__social-link--tg" href="#" target="_blank" rel="noreferrer noopener">
+                  <span class="visually-hidden">Telegram</span>
+                </a>
+              </li>
+              <li class="modal-standard__social-item">
+                <a class="modal-standard__social-link modal-standard__social-link--wa" href="#" target="_blank" rel="noreferrer noopener">
+                  <span class="visually-hidden">Whatsapp</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-standard__contacts-bottom">
+          <p class="modal-standard__contacts-text">Мы в&nbsp;социальных сетях</p>
+          <ul class="modal-standard__socials">
+            <li class="modal-standard__social-item">
+              <a class="modal-standard__social-link modal-standard__social-link--tg modal-standard__social-link--big" href="#" target="_blank" rel="noreferrer noopener">
+                <span class="visually-hidden">Telegram</span>
+              </a>
+            </li>
+            <li class="modal-standard__social-item">
+              <a class="modal-standard__social-link modal-standard__social-link--youtube modal-standard__social-link--big" href="#" target="_blank" rel="noreferrer noopener">
+                <span class="visually-hidden">Youtube</span>
+              </a>
+            </li>
+            <li class="modal-standard__social-item">
+              <a class="modal-standard__social-link modal-standard__social-link--vk modal-standard__social-link--big" href="#" target="_blank" rel="noreferrer noopener">
+                <span class="visually-hidden">Vkontakte</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

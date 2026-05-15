@@ -1,21 +1,30 @@
 @use "index" as *;
 
 .modal {
+  --modal-transform: translateY(20px);
+  --modal-opacity: 0;
+
   position: fixed;
   box-sizing: border-box;
   overflow-y: auto;
   top: 0;
   left: 0;
-  display: none;
+  display: flex;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
   width: 100%;
   height: 100%;
   padding: 20px 0;
-  background-color: var(--overlay);
-  backdrop-filter: blur(8px);
-  z-index: 300;
+  z-index: var(--z-modal);
 
   &.open {
-    display: flex;
+    --modal-transform: translateY(0);
+    --modal-opacity: 1;
+
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -24,15 +33,29 @@
   box-sizing: border-box;
   width: calc(100% - 20px);
   max-width: 500px;
-  padding: 20px;
+  padding: 40px 10px 20px;
   margin: auto;
-  color: var(--white);
-  background-color: var(--bg-accent);
-  border-radius: 5px;
+  background-color: var(--bg-light);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  transform: var(--modal-transform);
+  opacity: var(--modal-opacity);
+  transition: transform 0.5s, opacity 0.5s;
 
   @include vp-768 {
-    max-width: 680px;
-    padding: 30px;
+    width: calc(100% - 50px);
+    padding: 40px 20px 20px;
+  }
+
+  @include vp-1024 {
+    max-width: 1405px;
+    width: calc(100% - 120px);
+    padding: 60px;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.25);
+
+  }
+
+  @include vp-1366 {
+    padding: 80px 107px 80px 80px
   }
 }
 
@@ -41,13 +64,147 @@
   @include close-button;
 
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
   width: 30px;
   height: 30px;
 
   @include vp-1024 {
-    width: 40px;
-    height: 40px;
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
   }
+}
+
+// стандартное модальное окно
+
+.modal-standard__title {
+  @include vp-1024 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+  br {
+    @include vp-1280 {
+      display: block;
+    }
+  }
+}
+
+.modal-standard__wrapper {
+  @include vp-1024 {
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    gap: 0 20px;
+  }
+}
+
+.modal-standard__form {
+  margin: 0 0 20px;
+
+  @include vp-1024 {
+    grid-area: 2 / 2 / 3 / 3;
+    margin: 0;
+  }
+}
+
+.modal-standard__field {
+  @include input;
+
+  &:not(:last-of-type) {
+    margin: 0 0 32px;
+  }
+
+  &:last-of-type {
+    margin: 0 0 20px;
+  }
+}
+
+.modal--questions .modal-standard__field {
+  &:not(:last-of-type) {
+    margin: 0 0 14px;
+  }
+}
+
+.modal-standard__accept {
+  @include accept;
+
+  margin: 0 0 20px;
+
+  @include vp-1024 {
+    max-width: 550px;
+    margin: 0 0 40px;
+  }
+
+  @include hover {
+    --color: var(--text-basic);
+  }
+}
+
+.modal-standard__form-button {
+  width: 100%;
+}
+
+.modal-standard__contacts {
+  padding: 10px;
+
+  @include vp-1024 {
+    grid-area: 2 / 1 / 3 / 2;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 0;
+  }
+}
+
+.modal-standard__contacts-top {
+  margin: 0 0 20px;
+
+  @include vp-1024 {
+    align-self: start;
+    margin: 20px 0 0;
+  }
+}
+
+.modal-standard__contacts-group {
+  &:not(:last-child) {
+    margin: 0 0 20px;
+  }
+}
+
+.modal-standard__contacts-name {
+  margin: 0 0 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--text-grey);
+}
+
+.modal-standard__contacts-link {
+  @include interactive-link-grey;
+
+  margin: 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.modal-standard__contacts-text {
+  margin: 0 0 15px;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.modal-standard__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.modal-standard__social-link {
+  @include social-link;
 }

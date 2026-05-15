@@ -1,5 +1,6 @@
 import { TABS_DELAY } from "./../_vars.js";
 import { openDetails } from './_accordion.js';
+import { DESKTOP_WIDTH } from "./../_vars.js";
 
 const extendTabsWithAutoplay = (tab, tabLinks, tabContents) => {
   const isAccordion = tab.querySelector('.accordion');
@@ -38,6 +39,12 @@ const extendTabsWithAutoplay = (tab, tabLinks, tabContents) => {
     link.addEventListener('click', () => {
       clearInterval(intervalId);
     });
+  });
+
+  DESKTOP_WIDTH.addEventListener('change', () => {
+    if (!DESKTOP_WIDTH.matches) {
+      clearInterval(intervalId);
+    }
   });
 };
 

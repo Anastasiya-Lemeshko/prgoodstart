@@ -13,6 +13,7 @@
 @use "./components/modal";
 @use "./components/tabs";
 @use "./components/video";
+@use "./components/form-error-message";
 
 // подключения секций страницы
 @use "./blocks/header";
@@ -28,3 +29,4 @@
 @use "./blocks/video-main";
 @use "./blocks/reviews";
 @use "./blocks/footer";
+@use "./blocks/about-content";

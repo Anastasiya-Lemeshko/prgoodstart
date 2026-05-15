@@ -43,10 +43,12 @@
             <span class="modal-standard__label">Я&nbsp;даю согласие на&nbsp;обработку персональных данных в соответствии с&nbsp;Политикой конфиденциальности.</span>
             <input class="visually-hidden" type="checkbox" name="accept">
           </label>
-          <button class="modal-standard__form-button button button--dark" type="submit">Отправить +</button>
-        </div>
-        <div class="modal-standard__form-error-wrapper form-error-message">
-          <p class="modal-standard__form-error hidden"></p>
+          <div class="modal-standard__form-button-container">
+            <div class="modal-standard__form-error-wrapper form-error-message">
+              <p class="modal-standard__form-error hidden">Обязательные поля не заполнены</p>
+            </div>
+            <button class="modal-standard__form-button button button--dark" type="submit">Отправить +</button>
+          </div>
         </div>
       </form>
       <div class="modal-standard__contacts">

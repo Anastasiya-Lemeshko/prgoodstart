@@ -1,0 +1,17 @@
+.form-error-message {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  min-height: 20px;
+
+  p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 2px;
+    color: var(--accent);
+    animation: appear 0.3s;
+  }
+}

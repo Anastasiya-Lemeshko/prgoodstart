@@ -126,14 +126,85 @@
 }
 
 .hero__title {
-  @include visually-hidden;
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
 
   @include vp-768 {
-    @include removed-visually-hidden;
-
-    margin: 0;
-    font-weight: 600;
     font-size: 16px;
-    text-transform: uppercase;
+  }
+
+  &--mobile-hidden {
+    @include visually-hidden;
+
+    @include vp-768 {
+      @include removed-visually-hidden;
+    }
+  }
+}
+
+// hero для остальных страниц
+
+.hero__wrapper--secondary {
+  @include vp-768 {
+    grid-template-rows: 1fr auto;
+    align-items: end;
+  }
+
+  .hero__title {
+    position: relative;
+    margin: 0 0 25px;
+
+    &::after {
+      @include decor-line-shift;
+
+      bottom: -10px;
+    }
+  }
+
+  .hero__content {
+    margin: 0;
+
+    @include vp-768 {
+      grid-template-rows: 1fr auto;
+      align-items: end;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .hero__slogan {
+    margin: 0 0 18px;
+
+    @include vp-768 {
+      grid-area: 1 / 1 / 3 / 2;
+      display: flex;
+      align-items: flex-end;
+      min-height: 230px;
+      margin: 0;
+    }
+
+    @include vp-1366 {
+      min-height: 240px;
+    }
+
+    @include vp-1640 {
+      min-height: 264px;
+    }
+
+    @include vp-1920 {
+      min-height: 300px;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .hero__text {
+    margin: 0 0 10px;
   }
 }

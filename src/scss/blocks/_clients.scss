@@ -180,7 +180,12 @@
   @include accept;
 
   max-width: 637px;
-  margin: 0 0 21px;
+  margin: 0 0 25px;
+}
+
+.clients__form-button-container {
+  position: relative;
+  padding: 10px 0 0;
 }
 
 .clients__form-button {

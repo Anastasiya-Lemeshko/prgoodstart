@@ -144,7 +144,11 @@
   @include accept;
 
   max-width: 637px;
-  margin: 0 0 21px;
+  margin: 0 0 25px;
+}
+
+.footer__form-button-container {
+  position: relative;
 }
 
 .footer__form-button {

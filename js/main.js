@@ -15366,6 +15366,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_scroll_trigger_animation_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/_scroll-trigger-animation.js */ "./src/js/components/_scroll-trigger-animation.js");
 /* harmony import */ var _components_video_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/_video.js */ "./src/js/components/_video.js");
 /* harmony import */ var _components_move_footer_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/_move-footer.js */ "./src/js/components/_move-footer.js");
+/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/_modal.js */ "./src/js/components/_modal.js");
+/* harmony import */ var _components_textarea_height_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/_textarea-height.js */ "./src/js/components/_textarea-height.js");
+
+
 
 
 
@@ -15384,6 +15388,8 @@ document.addEventListener('DOMContentLoaded', () => {
   (0,_components_scroll_trigger_animation_js__WEBPACK_IMPORTED_MODULE_5__.setScrollAnimation)();
   (0,_components_video_js__WEBPACK_IMPORTED_MODULE_6__.playVideo)();
   (0,_components_move_footer_js__WEBPACK_IMPORTED_MODULE_7__.moveFooter)();
+  (0,_components_modal_js__WEBPACK_IMPORTED_MODULE_8__.setModals)();
+  (0,_components_textarea_height_js__WEBPACK_IMPORTED_MODULE_9__.setTextareaHeight)();
 });
 
 /***/ }),
@@ -15550,6 +15556,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   SMALL_DESKTOP_WIDTH: () => (/* binding */ SMALL_DESKTOP_WIDTH),
 /* harmony export */   TABLET_WIDTH: () => (/* binding */ TABLET_WIDTH),
 /* harmony export */   TABS_DELAY: () => (/* binding */ TABS_DELAY),
+/* harmony export */   TEXTAREA_LINEHEIGHT: () => (/* binding */ TEXTAREA_LINEHEIGHT),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -15564,6 +15571,7 @@ const DESKTOP_WIDTH = window.matchMedia('(min-width: 1366px)');
 const HEADER_FIXED_OFFSET = 500;
 const MODAL_TIMER = 3000000;
 const TABS_DELAY = 5000;
+const TEXTAREA_LINEHEIGHT = 22;
 const MODAL_CONTENT = {
   'title': {
     'individual-calc': 'Получите индивидуальный расчёт под ваш проект',
@@ -15816,6 +15824,271 @@ const setMediaHeight = contentHeight => {
   } else {
     tabsWrapper.style.height = `${tablinksHeight + contentHeight}px`;
   }
+};
+
+
+/***/ }),
+
+/***/ "./src/js/components/_modal-render.js":
+/*!********************************************!*\
+  !*** ./src/js/components/_modal-render.js ***!
+  \********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   renderModalContent: () => (/* binding */ renderModalContent),
+/* harmony export */   renderPhotoToModal: () => (/* binding */ renderPhotoToModal)
+/* harmony export */ });
+/* harmony import */ var _vars_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../_vars.js */ "./src/js/_vars.js");
+
+const renderPhotoToModal = (modal, button) => {
+  const modalImgContainer = modal.querySelector('.modal-photo__img');
+  const fullImgContainer = button.parentElement.querySelector('[data-full-photo]');
+  if (!modalImgContainer || !fullImgContainer) return;
+  const fullImg = fullImgContainer.querySelector('picture') || fullImgContainer.querySelector('img');
+  if (!fullImg) return;
+  const copyFullImg = fullImg.cloneNode(true);
+  modalImgContainer.innerHTML = '';
+  modalImgContainer.appendChild(copyFullImg);
+};
+const renderModalContent = (modal, button) => {
+  // Отрисовка заголовка для модального окна
+  if (button.hasAttribute('data-modal-title')) {
+    const titleKey = button.getAttribute('data-modal-title');
+    const modalTitle = modal.querySelector('[data-modal-title]');
+    if (_vars_js__WEBPACK_IMPORTED_MODULE_0__.MODAL_CONTENT.title && _vars_js__WEBPACK_IMPORTED_MODULE_0__.MODAL_CONTENT.title[titleKey] && modalTitle) {
+      modalTitle.textContent = _vars_js__WEBPACK_IMPORTED_MODULE_0__.MODAL_CONTENT.title[titleKey];
+    }
+    ;
+  }
+
+  // Отрисовка описания для модального окна
+  if (button.hasAttribute('data-modal-desc')) {
+    const descKey = button.getAttribute('data-modal-desc');
+    const modalDesc = modal.querySelector('[data-modal-desc]');
+    if (_vars_js__WEBPACK_IMPORTED_MODULE_0__.MODAL_CONTENT.title && _vars_js__WEBPACK_IMPORTED_MODULE_0__.MODAL_CONTENT.desc[descKey] && modalDesc) {
+      modalDesc.textContent = _vars_js__WEBPACK_IMPORTED_MODULE_0__.MODAL_CONTENT.desc[descKey];
+    }
+    ;
+  }
+
+  // Отрисовка динамического заголовка
+  if (button.hasAttribute('data-modal-dynamic')) {
+    let sourceTitle = button.closest('[data-modal-title]');
+    const modalTitle = modal.querySelector('[data-modal-title]');
+    if (!sourceTitle) sourceTitle = button.parentElement.querySelector('[data-modal-title]');
+    if (sourceTitle && modalTitle) {
+      modalTitle.textContent = sourceTitle.textContent;
+    }
+    ;
+  }
+
+  // Отрисовка заголовка с паттерном
+  if (button.hasAttribute('data-modal-pattern')) {
+    let sourceTitle = button.closest('[data-modal-title]');
+    const modalTitle = modal.querySelector('[data-modal-title]');
+    const patternKey = button.getAttribute('data-modal-pattern');
+    if (!sourceTitle) sourceTitle = button.parentElement.querySelector('[data-modal-title]');
+    if (sourceTitle && modalTitle && _vars_js__WEBPACK_IMPORTED_MODULE_0__.MODAL_CONTENT.pattern[patternKey]) {
+      const dynamicText = sourceTitle.textContent.trim();
+      const pattern = _vars_js__WEBPACK_IMPORTED_MODULE_0__.MODAL_CONTENT.pattern[patternKey];
+      modalTitle.textContent = pattern.replace('{title}', dynamicText);
+    }
+    ;
+  }
+};
+
+
+/***/ }),
+
+/***/ "./src/js/components/_modal.js":
+/*!*************************************!*\
+  !*** ./src/js/components/_modal.js ***!
+  \*************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setModals: () => (/* binding */ setModals)
+/* harmony export */ });
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_utils.js */ "./src/js/_utils.js");
+/* harmony import */ var _components_modal_render_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/_modal-render.js */ "./src/js/components/_modal-render.js");
+/* harmony import */ var _vars_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../_vars.js */ "./src/js/_vars.js");
+
+
+
+class ModalWindow {
+  constructor(buttons) {
+    this.html = document.querySelector('html');
+    this.buttons = buttons || [];
+    this.firstFocusableElement = null;
+    this.lastFocusableElement = null;
+  }
+  handleOpen() {
+    if (this.buttons.length === 0) return;
+    this.buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modalName = button.getAttribute('data-modal-button');
+        if (!modalName) return;
+        this.modal = document.querySelector(`[data-modal="${modalName}"]`);
+        if (!this.modal) return;
+        if (modalName === 'image-full' && !_vars_js__WEBPACK_IMPORTED_MODULE_2__.TABLET_WIDTH.matches) return;
+
+        // проверка необходимости отрисовки элементов в модальном окне
+        if (modalName === 'image-full') {
+          (0,_components_modal_render_js__WEBPACK_IMPORTED_MODULE_1__.renderPhotoToModal)(this.modal, button);
+        }
+        (0,_components_modal_render_js__WEBPACK_IMPORTED_MODULE_1__.renderModalContent)(this.modal, button);
+        this.modalWindow = this.modal.querySelector('.modal__container');
+        this.closeBtn = this.modal.querySelector('.modal-close');
+        const focusableElements = Array.from(this.modal.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'));
+        this.firstFocusableElement = focusableElements[0];
+        this.lastFocusableElement = focusableElements[focusableElements.length - 1];
+        this.addEventListeners();
+        this.openModal(this.modal);
+      });
+
+      // обработка enter, если вызов модалки идет через тег <a>
+      if (button.tagName === 'A' && !button.href) {
+        button.addEventListener('keydown', evt => {
+          if ((0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.isEnterKey)(evt)) {
+            evt.preventDefault();
+            button.click();
+          }
+        });
+      }
+    });
+  }
+
+  // открывает модальные окна по истечении таймера
+  timerStart() {
+    const subscribeModal = document.querySelector('[data-modal="subscribe"]');
+    if (!subscribeModal) return;
+    let inactivityTimer;
+    const resetTimer = () => {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(() => {
+        const otherModalOpened = document.querySelector('.modal.open');
+        if (otherModalOpened) return;
+        this.modal = subscribeModal;
+        this.modalWindow = subscribeModal.querySelector('.modal__container');
+        this.closeBtn = subscribeModal.querySelector('.modal-close');
+        const focusableElements = Array.from(subscribeModal.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'));
+        this.firstFocusableElement = focusableElements[0];
+        this.lastFocusableElement = focusableElements[focusableElements.length - 1];
+        this.addEventListeners();
+        this.openModal(subscribeModal);
+      }, _vars_js__WEBPACK_IMPORTED_MODULE_2__.MODAL_TIMER);
+    };
+    window.addEventListener('mousemove', resetTimer);
+    window.addEventListener('keydown', resetTimer);
+    window.addEventListener('scroll', resetTimer);
+    window.addEventListener('click', resetTimer);
+    resetTimer();
+  }
+  addEventListeners() {
+    if (!this.modal || !this.modalWindow || !this.closeBtn) return;
+
+    // Закрытие по кнопке
+    this.closeBtn.addEventListener('click', this.handleClose);
+
+    // Закрытие по Escape
+    this.escapeHandler = evt => {
+      if ((0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.isEscapeKey)(evt)) this.closeModal(this.modal);
+    };
+    window.addEventListener('keydown', this.escapeHandler);
+
+    // Закрытие по клику вне модального окна
+    this.modalWindow.addEventListener('click', evt => {
+      evt.stopPropagation();
+    });
+    this.modal.addEventListener('click', this.handleOverlayClick);
+
+    // Зацикливание фокуса
+    this.modal.addEventListener('keydown', this.loopFocus);
+  }
+  removeEventListeners() {
+    if (this.closeBtn) {
+      this.closeBtn.removeEventListener('click', this.handleClose);
+    }
+    window.removeEventListener('keydown', this.escapeHandler);
+    if (this.modal) {
+      this.modal.removeEventListener('click', this.handleOverlayClick);
+      this.modal.removeEventListener('keydown', this.loopFocus);
+    }
+  }
+  handleClose = () => {
+    this.closeModal(this.modal);
+  };
+  handleOverlayClick = evt => {
+    if (evt.target === this.modal) {
+      this.closeModal(this.modal);
+    }
+  };
+  loopFocus = evt => {
+    if (!(0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.isTabKey)(evt)) {
+      return;
+    }
+    if ((0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.isTabKey)(evt) && evt.shiftKey && document.activeElement === this.firstFocusableElement) {
+      evt.preventDefault();
+      this.lastFocusableElement.focus();
+    } else if ((0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.isTabKey)(evt) && !evt.shiftKey && document.activeElement === this.lastFocusableElement) {
+      evt.preventDefault();
+      this.firstFocusableElement.focus();
+    }
+  };
+  openModal(modal) {
+    if (!modal) return;
+    modal.classList.add('open');
+    this.closeBtn.focus();
+  }
+  openModalSuccess(modalSuccess) {
+    if (!modalSuccess) return;
+    this.closeAllModal();
+    this.modal = modalSuccess;
+    this.modalWindow = this.modal.querySelector('.modal__container');
+    this.closeBtn = this.modal.querySelector('.modal-close');
+    const focusableElements = Array.from(this.modal.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'));
+    this.firstFocusableElement = focusableElements[0];
+    this.lastFocusableElement = focusableElements[focusableElements.length - 1];
+    this.addEventListeners();
+    this.openModal(this.modal);
+  }
+  closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('open');
+    this.removeEventListeners();
+  }
+  closeAllModal() {
+    const allModal = document.querySelectorAll('.modal');
+    if (!allModal) return;
+    allModal.forEach(el => {
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
+      }
+    });
+    this.removeEventListeners();
+  }
+  init() {
+    this.handleOpen();
+    this.timerStart();
+  }
+}
+const setModals = () => {
+  const openButtons = document.querySelectorAll('[data-modal-button]');
+  const modalWindow = new ModalWindow(openButtons);
+  const modalSuccess = document.querySelector('[modal-success]');
+  modalWindow.init();
+
+  // Проверка наличия jQuery
+  if (typeof jQuery === 'undefined' && typeof $ === 'undefined') {
+    console.warn('jQuery is not loaded.');
+    return;
+  }
+  $(document).on('af_complete', (evt, res) => {
+    if (modalSuccess) if (res.success) modalWindow.openModalSuccess(modalSuccess);
+  });
 };
 
 
@@ -16150,6 +16423,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _accordion_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_accordion.js */ "./src/js/components/_accordion.js");
 
 
+
 const extendTabsWithAutoplay = (tab, tabLinks, tabContents) => {
   const isAccordion = tab.querySelector('.accordion');
   let intervalId = null;
@@ -16184,6 +16458,11 @@ const extendTabsWithAutoplay = (tab, tabLinks, tabContents) => {
       clearInterval(intervalId);
     });
   });
+  _vars_js__WEBPACK_IMPORTED_MODULE_0__.DESKTOP_WIDTH.addEventListener('change', () => {
+    if (!_vars_js__WEBPACK_IMPORTED_MODULE_0__.DESKTOP_WIDTH.matches) {
+      clearInterval(intervalId);
+    }
+  });
 };
 
 
@@ -16200,6 +16479,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   setTabs: () => (/* binding */ setTabs)
 /* harmony export */ });
 /* harmony import */ var _tabs_autoplay_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_tabs-autoplay.js */ "./src/js/components/_tabs-autoplay.js");
+/* harmony import */ var _vars_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../_vars.js */ "./src/js/_vars.js");
+
 
 const tabs = document.querySelectorAll('.tabs');
 const setTabs = () => {
@@ -16222,12 +16503,42 @@ const setTabs = () => {
     tabLinks.forEach(tablink => {
       tablink.addEventListener('click', openTabs);
     });
-    if (tab.classList.contains('tabs--autoplay')) {
+    if (tab.classList.contains('tabs--autoplay') && _vars_js__WEBPACK_IMPORTED_MODULE_1__.DESKTOP_WIDTH.matches) {
       (0,_tabs_autoplay_js__WEBPACK_IMPORTED_MODULE_0__.extendTabsWithAutoplay)(tab, tabLinks, tabContents);
     }
     ;
   });
 };
+
+
+/***/ }),
+
+/***/ "./src/js/components/_textarea-height.js":
+/*!***********************************************!*\
+  !*** ./src/js/components/_textarea-height.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setTextareaHeight: () => (/* binding */ setTextareaHeight)
+/* harmony export */ });
+/* harmony import */ var _vars_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../_vars.js */ "./src/js/_vars.js");
+
+const textareaFields = document.querySelectorAll('.textarea');
+const setTextareaHeight = () => {
+  if (!textareaFields || !textareaFields.length) return;
+  textareaFields.forEach(field => {
+    const span = field.querySelector('span');
+    const textarea = field.querySelector('textarea');
+    if (!span || !textarea) return;
+    const height = span.offsetHeight;
+    const stringCount = Math.max(height / _vars_js__WEBPACK_IMPORTED_MODULE_0__.TEXTAREA_LINEHEIGHT);
+    textarea.setAttribute('rows', stringCount);
+  });
+};
+_vars_js__WEBPACK_IMPORTED_MODULE_0__.TABLET_WIDTH.addEventListener('change', setTextareaHeight);
+_vars_js__WEBPACK_IMPORTED_MODULE_0__.DESKTOP_WIDTH.addEventListener('change', setTextareaHeight);
 
 
 /***/ }),

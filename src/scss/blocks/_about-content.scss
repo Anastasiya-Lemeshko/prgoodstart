@@ -22,6 +22,7 @@
 
 .about-content__title {
   @include vp-768 {
+    margin-top: -10px;
     font-size: 50px;
   }
 
@@ -30,10 +31,12 @@
   }
 
   @include vp-1366 {
+    margin-top: -15px;
     font-size: 80px;
   }
 
   @include vp-1640 {
+    margin-top: -20px;
     font-size: 100px;
   }
 

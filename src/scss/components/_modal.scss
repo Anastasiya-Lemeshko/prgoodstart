@@ -212,3 +212,50 @@
 .modal-standard__social-link {
   @include social-link;
 }
+
+// модальное окно с полноразмерным изображением
+
+.modal-photo {
+  &__container {
+    max-width: calc(100% - 40px);
+    width: fit-content;
+    padding: 0;
+
+    @include vp-768 {
+      max-width: calc(100% - 200px);
+      height: calc(100dvh - 80px);
+      padding: 0;
+    }
+
+    @include vp-1024 {
+      max-width: calc(100% - 300px);
+      padding: 0;
+    }
+
+    @include vp-1640 {
+      max-width: 1280px;
+    }
+  }
+
+  .modal__close-button {
+    right: unset;
+    top: 0;
+    left: 100%;
+
+    &::before,
+    &::after {
+      background-color: var(--text-basic);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+
+    img {
+      @include img-contain;
+    }
+  }
+}

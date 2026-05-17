@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="page">
+<html lang="ru" class="page">
 
 @include('partials/head.html')
 
@@ -8,6 +8,10 @@
   <main class="page__main index">
     @include('partials/pages/about-hero.html')
     @include('partials/pages/about-content.html')
+    @include('partials/pages/about-grid.html')
+    @include('partials/pages/about-order-list.html')
+    @include('partials/thanks.html')
+    @include('partials/reviews.html', { "title": "Наши партнёры и клиенты: эксперты, бренды, предприниматели" })
   </main>
   @include('partials/footer.html')
 </body>

@@ -1,6 +1,11 @@
 <section class="reviews">
   <div class="container">
+    @if (typeof title !== 'undefined') {
+    <h2 class="reviews__title title">@title</h2>
+    }
+    @if (typeof title === 'undefined') {
     <h2 class="reviews__title title">Что говорят клиенты после первых выходов</h2>
+    }
     <div class="reviews__swiper-container">
       <div class="reviews__swiper" data-swiper="navigation">
         <ul class="reviews__swiper-wrapper">

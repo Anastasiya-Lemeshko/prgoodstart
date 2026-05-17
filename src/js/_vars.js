@@ -65,6 +65,13 @@ export const SLIDER_CONFIG = {
     'desktop_count': 3,
     'loop': true,
   },
+  'thanks': {
+    'mobile_count': 1,
+    'tablet_count': 2,
+    'desktop_count': 4,
+    'desktop_width': SMALL_DESKTOP_WIDTH,
+    'loop': true,
+  },
 };
 
 export const RANGE_VALUES = {

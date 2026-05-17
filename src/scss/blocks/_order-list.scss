@@ -1,10 +1,10 @@
 @use "index" as *;
 
-.features {
+.order-list {
   padding: 40px 0 60px;
 }
 
-.features__header {
+.order-list__header {
   margin: 0 0 20px;
 
   @include vp-768 {
@@ -24,7 +24,15 @@
   }
 }
 
-.features__title {
+.order-list__header>*:only-child {
+  grid-column: 1 / -1;
+
+  @include vp-1640 {
+    grid-column: 1 / 3;
+  }
+}
+
+.order-list__title {
   @include vp-768 {
     grid-column: 1 / 3;
     margin: 0;
@@ -37,7 +45,7 @@
   }
 }
 
-.features__header-text {
+.order-list__header-text {
   margin: 0;
   font-weight: 400;
   font-size: 16px;
@@ -49,14 +57,14 @@
   }
 }
 
-.features__list {
+.order-list__list {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  counter-reset: features;
+  counter-reset: order-list;
 }
 
-.features__item {
+.order-list__item {
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -81,8 +89,8 @@
 
   &::before {
     grid-area: 1 / 1 / 2 / 2;
-    counter-increment: features;
-    content: counter(features, decimal-leading-zero);
+    counter-increment: order-list;
+    content: counter(order-list, decimal-leading-zero);
     font-weight: 400;
     font-size: 18px;
     color: var(--accent);
@@ -93,7 +101,7 @@
   }
 }
 
-.features__subtitle {
+.order-list__subtitle {
   margin: 0;
   font-weight: 400;
   font-size: 25px;
@@ -113,7 +121,7 @@
   }
 }
 
-.features__text {
+.order-list__text {
   grid-column: 1 / 3;
   margin: 0;
   font-weight: 400;

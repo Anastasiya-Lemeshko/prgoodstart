@@ -1,12 +1,12 @@
 @use "index" as *;
 
-.clients {
+.grid {
   padding: 40px 0;
   color: var(--white);
   background-color: var(--text-basic);
 }
 
-.clients__wrapper {
+.grid__wrapper {
   @include vp-768 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -23,7 +23,7 @@
   }
 }
 
-.clients__title {
+.grid__title {
   margin: 0 0 14px;
 
   @include vp-768 {
@@ -34,9 +34,15 @@
   @include vp-1280 {
     grid-area: 1 / 3 / 2 / 5;
   }
+
+  &.visually-hidden {
+    @include vp-768 {
+      position: relative;
+    }
+  }
 }
 
-.clients__card {
+.grid__card {
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 331px;
@@ -74,12 +80,24 @@
     }
   }
 
+  &:nth-of-type(2n + 3) {
+    @include vp-768 {
+      transition-delay: 0.5s;
+    }
+
+    @include vp-1280 {
+      transition-delay: unset;
+    }
+  }
+
   &:nth-of-type(2n) {
-    transition-delay: 0.5s;
+    @include vp-1280 {
+      transition-delay: 0.5s;
+    }
   }
 }
 
-.clients__subtitle {
+.grid__subtitle {
   position: relative;
   margin: 0 0 20px;
   padding: 0 25px 18px 0;
@@ -105,7 +123,7 @@
   }
 }
 
-.clients__text {
+.grid__text {
   align-self: end;
   max-width: 500px;
   margin: 0;
@@ -122,7 +140,7 @@
   }
 }
 
-.clients__form {
+.grid__form {
   margin: 20px 0 0;
 
   @include vp-768 {
@@ -134,13 +152,13 @@
   }
 }
 
-.clients__form-group {
+.grid__form-group {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.clients__form-title {
+.grid__form-title {
   max-width: 500px;
   margin: 0 0 20px;
   font-weight: 400;
@@ -159,35 +177,35 @@
   }
 }
 
-.clients__form-list {
+.grid__form-list {
   margin: 0 0 20px;
   padding: 0;
   list-style-type: none;
 }
 
-.clients__form-item {
+.grid__form-item {
   &:not(:last-child) {
     margin: 0 0 35px;
   }
 }
 
-.clients__field {
+.grid__field {
   @include input-classic;
 
 }
 
-.clients__accept {
+.grid__accept {
   @include accept;
 
   max-width: 637px;
   margin: 0 0 25px;
 }
 
-.clients__form-button-container {
+.grid__form-button-container {
   position: relative;
   padding: 10px 0 0;
 }
 
-.clients__form-button {
+.grid__form-button {
   width: 100%;
 }

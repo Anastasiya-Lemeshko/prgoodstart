@@ -8,6 +8,7 @@ import { playVideo } from './components/_video.js';
 import { moveFooter } from './components/_move-footer.js';
 import { setModals } from './components/_modal.js';
 import { setTextareaHeight } from './components/_textarea-height.js';
+import { alignGridComponents } from './components/_grid-align.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   toggleBurgerMenu();
@@ -21,5 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   moveFooter();
   setModals();
   setTextareaHeight();
+  alignGridComponents();
 });
 

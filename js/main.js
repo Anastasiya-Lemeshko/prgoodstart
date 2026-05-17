@@ -15368,6 +15368,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_move_footer_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/_move-footer.js */ "./src/js/components/_move-footer.js");
 /* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/_modal.js */ "./src/js/components/_modal.js");
 /* harmony import */ var _components_textarea_height_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/_textarea-height.js */ "./src/js/components/_textarea-height.js");
+/* harmony import */ var _components_grid_align_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/_grid-align.js */ "./src/js/components/_grid-align.js");
+
 
 
 
@@ -15390,6 +15392,7 @@ document.addEventListener('DOMContentLoaded', () => {
   (0,_components_move_footer_js__WEBPACK_IMPORTED_MODULE_7__.moveFooter)();
   (0,_components_modal_js__WEBPACK_IMPORTED_MODULE_8__.setModals)();
   (0,_components_textarea_height_js__WEBPACK_IMPORTED_MODULE_9__.setTextareaHeight)();
+  (0,_components_grid_align_js__WEBPACK_IMPORTED_MODULE_10__.alignGridComponents)();
 });
 
 /***/ }),
@@ -15618,6 +15621,13 @@ const SLIDER_CONFIG = {
     'tablet_count': 2,
     'desktop_count': 3,
     'loop': true
+  },
+  'thanks': {
+    'mobile_count': 1,
+    'tablet_count': 2,
+    'desktop_count': 4,
+    'desktop_width': SMALL_DESKTOP_WIDTH,
+    'loop': true
   }
 };
 const RANGE_VALUES = {
@@ -15751,6 +15761,52 @@ const recalcOpenedAccordionHeight = () => {
 };
 const debounsedRecalc = (0,_utils_js__WEBPACK_IMPORTED_MODULE_1__.debounce)(recalcOpenedAccordionHeight, 50);
 window.addEventListener('resize', debounsedRecalc);
+
+
+/***/ }),
+
+/***/ "./src/js/components/_grid-align.js":
+/*!******************************************!*\
+  !*** ./src/js/components/_grid-align.js ***!
+  \******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   alignGridComponents: () => (/* binding */ alignGridComponents)
+/* harmony export */ });
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../_utils.js */ "./src/js/_utils.js");
+
+const grid = document.querySelectorAll('[data-align="grid"]');
+const alignGridComponents = () => {
+  if (!grid || !grid.length) return;
+  grid.forEach(item => {
+    const gridTitles = item.querySelectorAll('[data-align="title"]');
+    const gridText = item.querySelectorAll('[data-align="text"]');
+    let minTitleHeight = 0;
+    let minTextHeight = 0;
+    if (gridTitles && gridTitles.length) {
+      gridTitles.forEach(title => {
+        title.style.minHeight = 'unset';
+        minTitleHeight = Math.max(minTitleHeight, title.offsetHeight);
+      });
+      gridTitles.forEach(title => {
+        title.style.minHeight = `${minTitleHeight}px`;
+      });
+    }
+    if (gridText && gridText.length) {
+      gridText.forEach(text => {
+        text.style.minHeight = 'unset';
+        minTextHeight = Math.max(minTextHeight, text.offsetHeight);
+      });
+      gridText.forEach(text => {
+        text.style.minHeight = `${minTextHeight}px`;
+      });
+    }
+  });
+};
+const debouncedAlign = (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.debounce)(alignGridComponents, 100);
+window.addEventListener('resize', debouncedAlign);
 
 
 /***/ }),

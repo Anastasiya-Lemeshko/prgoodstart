@@ -1,0 +1,164 @@
+@use "index" as *;
+
+.price {
+  padding: 40px 0;
+}
+
+.price__title {
+  @include vp-1024 {
+    margin: 0 0 20px;
+  }
+}
+
+.price__tabs-wrapper {
+  margin: 0 0 18px;
+
+  @include vp-1024 {
+    margin: 0 0 35px;
+  }
+}
+
+.price__tablinks {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+.price__tablinks-item {
+  &:not(:last-child) {
+    margin: 0 0 10px;
+
+    @include vp-768 {
+      margin: 0;
+    }
+  }
+}
+
+.price__tablink {
+  width: 100%;
+
+  @include vp-768 {
+    width: fit-content;
+    min-width: 250px;
+  }
+}
+
+.price__content {
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 15px;
+    padding: 18px 0 0;
+    border-top: 1px solid var(--bg-light);
+  }
+
+  @include vp-1366 {
+    grid-template-columns: 1fr 694px;
+  }
+}
+
+.price__text {
+  margin: 0 0 17px;
+
+  @include vp-1366 {
+    max-width: 550px;
+    margin: 0 0 45px;
+  }
+
+  p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+
+    @include vp-1024 {
+      font-size: 18px;
+    }
+  }
+
+  p+p {
+    margin-top: 8px;
+  }
+}
+
+.price__img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 370 / 265;
+  margin: 0 0 35px;
+
+  @include vp-550 {
+    aspect-ratio: unset;
+    height: 350px;
+  }
+
+  @include vp-768 {
+    grid-area: 1 / 2 / 3 / 3;
+    height: 100%;
+  }
+
+  img {
+    @include img-bg;
+  }
+}
+
+.price__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-1366 {
+    margin: 0 0 40px;
+  }
+}
+
+.price__item {
+  @include vp-1366 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    border-bottom: 1px solid var(--bg-light);
+  }
+
+  &:not(:last-child) {
+    margin: 0 0 20px;
+
+    @include vp-1366 {
+      margin: 0 0 35px;
+    }
+  }
+}
+
+.price__name {
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 0.9;
+
+  @include vp-1366 {
+    margin: 0;
+  }
+
+  @include vp-1640 {
+    font-size: 35px;
+  }
+}
+
+.price__button {
+  width: 100%;
+
+  @include vp-1366 {
+    width: fit-content;
+    min-width: 300px;
+  }
+
+  @include vp-1920 {
+    min-width: 387px;
+  }
+}

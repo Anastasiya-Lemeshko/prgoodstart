@@ -102,6 +102,10 @@
   min-height: 414px;
   padding: 20px;
   background-color: var(--bg-light);
+
+  &--simple {
+    grid-template-rows: auto 1fr;
+  }
 }
 
 .stages__number {
@@ -129,7 +133,7 @@
 }
 
 .stages__text {
-  max-width: 500px;
+  max-width: 512px;
   align-self: end;
   margin: 0;
   font-weight: 400;

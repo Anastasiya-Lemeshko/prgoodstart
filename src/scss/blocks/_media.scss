@@ -14,6 +14,12 @@
   @include vp-1640 {
     grid-template-columns: 455px minmax(0, 1fr);
   }
+
+  &--wide {
+    @include vp-1640 {
+      grid-template-columns: 582px minmax(0, 1fr);
+    }
+  }
 }
 
 .media__tabs-wrapper {
@@ -99,7 +105,7 @@
 
 .media__link-more {
   @include interactive-link-grey;
-  
+
   display: none;
 
   @include vp-1366 {
@@ -124,7 +130,18 @@
 }
 
 .media__marquee-item {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  min-height: 77px;
+
+  @include vp-768 {
+    min-height: 144px;
+  }
+
   img {
+    @include img-contain;
+
     max-width: 141px;
     transform: scale(1);
     filter: grayscale(100%);
@@ -188,7 +205,8 @@
   }
 
   @include vp-1640 {
-    height: 604px;
+    height: unset;
+    aspect-ratio: 475 / 604;
   }
 
   img {

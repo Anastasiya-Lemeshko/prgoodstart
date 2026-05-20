@@ -100,7 +100,7 @@
 .grid__subtitle {
   position: relative;
   margin: 0 0 20px;
-  padding: 0 25px 18px 0;
+  padding: 0 25px 10px 0;
   font-weight: 400;
   font-size: 25px;
   line-height: 0.9;
@@ -131,7 +131,7 @@
   font-size: 16px;
 
   @include vp-1280 {
-    padding: 20px 0 0;
+    padding: 15px 0 0;
     border-top: 1px solid var(--grey-light);
   }
 

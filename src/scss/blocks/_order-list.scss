@@ -137,3 +137,17 @@
     line-height: 1.4;
   }
 }
+
+.order-list__link {
+  width: 100%;
+
+  @include vp-768 {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+  }
+
+  @include vp-1024 {
+    min-width: 387px;
+  }
+}

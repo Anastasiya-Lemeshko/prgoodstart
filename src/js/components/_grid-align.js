@@ -1,9 +1,10 @@
+import { TABLET_WIDTH } from '../_vars.js';
 import { debounce } from './../_utils.js';
 
 const grid = document.querySelectorAll('[data-align="grid"]');
 
 const alignGridComponents = () => {
-  if (!grid || !grid.length) return;
+  if (!grid || !grid.length || !TABLET_WIDTH.matches) return;
 
   grid.forEach((item) => {
     const gridTitles = item.querySelectorAll('[data-align="title"]');

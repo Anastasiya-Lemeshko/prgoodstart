@@ -111,7 +111,6 @@
   overflow: hidden;
   width: 100%;
   height: 415px;
-  margin: 0 0 10px;
 
   @include vp-768 {
     height: unset;
@@ -130,6 +129,7 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 20px;
+  margin: 10px 0 0;
 }
 
 .blog-preview__category,

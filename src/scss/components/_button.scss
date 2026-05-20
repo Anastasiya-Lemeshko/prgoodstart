@@ -64,4 +64,21 @@
     background-color: var(--accent);
     border: 1px solid var(--accent);
   }
+
+  &--tab {
+    @include interactive-button-dark;
+
+    color: var(--text-basic);
+    background-color: var(--transparent);
+    border: 1px solid var(--accent);
+
+    &.tabs__tablink--active {
+      color: var(--white);
+      background-color: var(--accent);
+
+      @include hover-focus {
+        background-color: var(--text-basic);
+      }
+    }
+  }
 }

@@ -9,7 +9,7 @@ const setMarquee = () => {
     const marquee = new Marquee({
       container,
       speed: "0.1vw",
-      gap: "3vw"
+      gap: "4vw"
     });
 
     const swipe = new Swipe({

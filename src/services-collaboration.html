@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  @include('partials/header.html')
+  <main class="page__main index">
+    @include('partials/pages/services-collaboration-hero.html')
+    @include('partials/pages/services-collaboration-grid.html')
+    @include('partials/pages/services-collaboration-media.html')
+    @include('partials/pages/services-collaboration-list.html')
+    @include('partials/pages/services-collaboration-format.html')
+    @include('partials/services-realize.html', { "title": "Как мы&nbsp;реализуем пиар через&nbsp;партнёрства" })
+    @include('partials/price.html')
+  </main>
+  @include('partials/footer.html')
+</body>
+
+</html>

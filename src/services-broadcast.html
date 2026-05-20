@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  @include('partials/header.html')
+  <main class="page__main index">
+    @include('partials/pages/services-broadcast-hero.html')
+    @include('partials/pages/services-broadcast-grid.html')
+    @include('partials/pages/services-broadcast-media.html')
+    @include('partials/pages/services-broadcast-list.html')
+    @include('partials/pages/services-broadcast-format.html')
+    @include('partials/services-realize.html', { "title": "Как мы реализуем пиар через&nbsp;эфиры" })
+    @include('partials/price.html')
+  </main>
+  @include('partials/footer.html')
+</body>
+
+</html>

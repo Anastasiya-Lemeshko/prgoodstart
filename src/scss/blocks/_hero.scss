@@ -164,6 +164,10 @@
       @include decor-line-shift;
 
       bottom: -10px;
+
+      @include vp-768 {
+        display: none;
+      }
     }
   }
 
@@ -176,7 +180,10 @@
     }
 
     &::after {
-      display: none;
+      @include vp-768 {
+        top: -15px;
+        bottom: unset;
+      }
     }
   }
 

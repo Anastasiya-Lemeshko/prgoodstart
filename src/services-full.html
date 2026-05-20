@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  @include('partials/header.html')
+  <main class="page__main index">
+    @include('partials/pages/services-full-hero.html')
+    @include('partials/pages/services-full-grid.html')
+    @include('partials/pages/services-full-media.html')
+    @include('partials/pages/services-full-list.html')
+    @include('partials/pages/services-full-format.html')
+    @include('partials/services-realize.html', { "title": "Как комплексный пиар работает на&nbsp;практике" })
+    @include('partials/price.html')
+  </main>
+  @include('partials/footer.html')
+</body>
+
+</html>

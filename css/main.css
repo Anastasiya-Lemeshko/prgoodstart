@@ -220,6 +220,7 @@ form {
   opacity: 0.5;
 }
 .sitemap a {
+  display: block;
   font-size: 20px;
   color: inherit;
 }

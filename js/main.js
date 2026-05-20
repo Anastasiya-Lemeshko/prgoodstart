@@ -15775,11 +15775,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   alignGridComponents: () => (/* binding */ alignGridComponents)
 /* harmony export */ });
-/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../_utils.js */ "./src/js/_utils.js");
+/* harmony import */ var _vars_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_vars.js */ "./src/js/_vars.js");
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../_utils.js */ "./src/js/_utils.js");
+
 
 const grid = document.querySelectorAll('[data-align="grid"]');
 const alignGridComponents = () => {
-  if (!grid || !grid.length) return;
+  if (!grid || !grid.length || !_vars_js__WEBPACK_IMPORTED_MODULE_0__.TABLET_WIDTH.matches) return;
   grid.forEach(item => {
     const gridTitles = item.querySelectorAll('[data-align="title"]');
     const gridText = item.querySelectorAll('[data-align="text"]');
@@ -15805,7 +15807,7 @@ const alignGridComponents = () => {
     }
   });
 };
-const debouncedAlign = (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.debounce)(alignGridComponents, 100);
+const debouncedAlign = (0,_utils_js__WEBPACK_IMPORTED_MODULE_1__.debounce)(alignGridComponents, 100);
 window.addEventListener('resize', debouncedAlign);
 
 
@@ -15831,7 +15833,7 @@ const setMarquee = () => {
     const marquee = new vevet__WEBPACK_IMPORTED_MODULE_0__.Marquee({
       container,
       speed: "0.1vw",
-      gap: "3vw"
+      gap: "4vw"
     });
     const swipe = new vevet__WEBPACK_IMPORTED_MODULE_1__.Swipe({
       container,

@@ -134,6 +134,7 @@ form {
 .sitemap a {
   @include interactive-opacity;
 
+  display: block;
   font-size: 20px;
   color: inherit;
 }

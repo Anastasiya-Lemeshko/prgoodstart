@@ -1,17 +1,30 @@
 @use "index" as *;
 
+.map {
+  padding: 10px 0 40px;
+  background-color: var(--text-basic);
+
+  @include vp-1024 {
+    padding: 20px 0 50px;
+  }
+}
+
 .map__wrapper {
   display: grid;
-  height: 300px;
-  border-radius: 5px;
+  height: 370px;
+  margin: 20px 0 0;
   overflow: hidden;
 
+  @include vp-550 {
+    height: 510px;
+  }
+
   @include vp-768 {
-    height: 520px;
+    height: 600px;
   }
 
   @include vp-1366 {
-    height: 741px;
+    height: 728px;
   }
 }
 
@@ -20,7 +33,7 @@
   margin: auto;
   width: 100%;
   height: 100%;
-  background-color: var(--grey);
+  background-color: var(--text-light);
 }
 
 .map__image img {
@@ -36,4 +49,5 @@
 
 .map__iframe iframe {
   height: 100%;
+  border: none;
 }

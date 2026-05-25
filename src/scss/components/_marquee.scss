@@ -1,0 +1,40 @@
+@use "index" as *;
+
+.marquee__item {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  min-height: 77px;
+
+  @include vp-768 {
+    min-height: 144px;
+  }
+
+  img {
+    @include img-contain;
+
+    max-width: 141px;
+    transform: scale(1);
+    filter: grayscale(100%);
+    transition: filter 0.5s, transform 0.5s, opacity 0.5s;
+
+    @include vp-768 {
+      max-width: 300px;
+    }
+
+    @include hover {
+      transform: scale(1.1);
+      filter: none;
+    }
+  }
+
+  &--opacity {
+    img {
+      opacity: 1;
+
+      @include hover {
+        opacity: 0.74;
+      }
+    }
+  }
+}

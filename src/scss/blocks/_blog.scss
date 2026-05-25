@@ -1,6 +1,6 @@
 @use "index" as *;
 
-.blog-preview {
+.blog {
   padding: 40px 0;
 
   @include vp-1024 {
@@ -8,7 +8,12 @@
   }
 }
 
-.blog-preview__swiper-wrapper {
+.blog__title {
+  max-width: unset;
+}
+
+.blog__swiper-wrapper,
+.blog__list {
   display: flex;
   margin: 0;
   padding: 0;
@@ -24,6 +29,10 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
+  @include vp-1366 {
+    gap: 20px;
+  }
+
   &.swiper-wrapper {
     display: flex;
     gap: unset;
@@ -31,11 +40,11 @@
   }
 }
 
-.blog-preview__slide {
+.blog__slide {
   @include slide-layout;
 }
 
-.blog-preview__card {
+.blog__card {
   @include slide-container;
 
   --img-scale: scale(1);
@@ -69,7 +78,7 @@
   }
 }
 
-.blog-preview__name {
+.blog__name {
   position: relative;
   margin: 0 0 20px;
   padding: 0 25px 12px 0;
@@ -106,7 +115,7 @@
   }
 }
 
-.blog-preview__img {
+.blog__img {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -124,7 +133,7 @@
   }
 }
 
-.blog-preview__bottom {
+.blog__bottom {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -132,8 +141,8 @@
   margin: 10px 0 0;
 }
 
-.blog-preview__category,
-.blog-preview__date {
+.blog__category,
+.blog__date {
   margin: 0;
   font-weight: 400;
   font-size: 16px;
@@ -143,7 +152,7 @@
   }
 }
 
-.blog-preview__swiper-button-container {
+.blog__swiper-button-container {
   @include swiper-button-position;
 
   @include vp-1280 {

@@ -2,6 +2,10 @@
 
 .hero {
   position: relative;
+
+  &--no-img {
+    background-color: var(--text-basic);
+  }
 }
 
 .hero__wrapper {
@@ -25,6 +29,39 @@
 
 .hero__img {
   @include container-img-bg;
+
+  background-color: var(--text-basic);
+}
+
+.hero__img-brand {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 900px;
+  max-height: 340px;
+  margin: auto;
+  height: calc(100% - 170px - 230px);
+
+  @include vp-768 {
+    height: calc(100% - 130px - 230px);
+  }
+
+  @include vp-1366 {
+    height: calc(100% - 130px - 240px);
+  }
+
+  @include vp-1640 {
+    height: calc(100% - 130px - 264px);
+  }
+
+  @include vp-1920 {
+    height: calc(100% - 130px - 300px);
+  }
+
+  img {
+    @include img-contain;
+  }
 }
 
 .hero__content {
@@ -177,6 +214,7 @@
     @include vp-768 {
       grid-template-rows: 1fr auto;
       align-items: end;
+      gap: 0 20px;
     }
 
     &::after {
@@ -213,9 +251,47 @@
     &::after {
       display: none;
     }
+
+    br {
+      display: none;
+
+      @include vp-1366 {
+        display: block;
+      }
+    }
   }
 
   .hero__text {
     margin: 0 0 10px;
+
+    @include vp-768 {
+      margin: 0 0 30px;
+    }
+  }
+
+  .hero__button {
+    @include vp-768 {
+      align-self: end;
+    }
+  }
+}
+
+// hero для страниц проектов
+
+.hero__wrapper--brand {
+  .hero__slogan {
+    margin: 0 0 18px;
+
+    @include vp-768 {
+      grid-area: 1 / 1 / 3 / 2;
+      display: flex;
+      align-items: flex-end;
+      min-height: 153px;
+      margin: 0;
+    }
+  }
+
+  .hero__button {
+    @include interactive-button-accent;
   }
 }

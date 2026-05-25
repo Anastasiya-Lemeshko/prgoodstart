@@ -43,6 +43,14 @@
       display: block;
     }
   }
+
+  &.title-with-circle {
+    margin: 0 0 20px;
+
+    @include vp-1024 {
+      margin: 0 0 40px;
+    }
+  }
 }
 
 .order-list__header-text {

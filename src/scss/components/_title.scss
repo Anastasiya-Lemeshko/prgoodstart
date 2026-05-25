@@ -51,3 +51,27 @@
     }
   }
 }
+
+.title-with-circle {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0 11px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+
+  &::before {
+    grid-area: 1 / 1 / 2 / 2;
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--accent);
+  }
+
+  &--white {
+    color: var(--white);
+  }
+}

@@ -1,18 +1,18 @@
-<section class="blog-preview">
+<section class="blog">
   <div class="container">
     @if (typeof title !== 'undefined') {
-    <h2 class="blog-preview__title title">@title</h2>
+    <h2 class="blog__title title">@title</h2>
     }
     @if (typeof title === 'undefined') {
-    <h2 class="blog-preview__title title">Как мы реализуем пиар через публикации в&nbsp;СМИ</h2>
+    <h2 class="blog__title title">Как мы реализуем пиар через публикации в&nbsp;СМИ</h2>
     }
-    <div class="blog-preview__swiper-container">
-      <div class="blog-preview__swiper" data-swiper="navigation">
-        <ul class="blog-preview__swiper-wrapper">
-          <li class="blog-preview__slide">
-            <a class="blog-preview__card" href="#">
-              <p class="blog-preview__name">Статья на&nbsp;HELLO</p>
-              <div class="blog-preview__img">
+    <div class="blog__swiper-container">
+      <div class="blog__swiper" data-swiper="navigation">
+        <ul class="blog__swiper-wrapper">
+          <li class="blog__slide">
+            <a class="blog__card" href="#">
+              <p class="blog__name">Статья на&nbsp;HELLO</p>
+              <div class="blog__img">
                 <picture>
                   <source width="425" height="415" type="image/webp" media="(min-width: 768px)" srcset="img/articles/1-tablet@1x.webp 1x, img/articles/1-tablet@2x.webp 2x">
                   <source width="335" height="416" type="image/webp" srcset="img/articles/1-mobile@1x.webp 1x, img/articles/1-mobile@2x.webp 2x">
@@ -22,10 +22,10 @@
               </div>
             </a>
           </li>
-          <li class="blog-preview__slide">
-            <a class="blog-preview__card" href="#">
-              <p class="blog-preview__name">Статья на&nbsp;Forbes</p>
-              <div class="blog-preview__img">
+          <li class="blog__slide">
+            <a class="blog__card" href="#">
+              <p class="blog__name">Статья на&nbsp;Forbes</p>
+              <div class="blog__img">
                 <picture>
                   <source width="425" height="415" type="image/webp" media="(min-width: 768px)" srcset="img/articles/2-tablet@1x.webp 1x, img/articles/2-tablet@2x.webp 2x">
                   <source width="335" height="416" type="image/webp" srcset="img/articles/1-mobile@1x.webp 1x, img/articles/1-mobile@2x.webp 2x">
@@ -36,7 +36,7 @@
             </a>
           </li>
         </ul>
-        <div class="blog-preview__swiper-button-container hidden">
+        <div class="blog__swiper-button-container hidden">
           <button class="button-swiper button-swiper--prev" type="button">
             <span class="visually-hidden">Назад.</span>
           </button>

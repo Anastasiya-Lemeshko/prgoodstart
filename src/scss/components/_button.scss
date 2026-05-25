@@ -80,5 +80,14 @@
         background-color: var(--text-basic);
       }
     }
+
+    &.active {
+      color: var(--white);
+      background-color: var(--accent);
+
+      @include hover-focus {
+        background-color: var(--text-basic);
+      }
+    }
   }
 }

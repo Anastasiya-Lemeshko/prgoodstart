@@ -1,0 +1,62 @@
+@use "index" as *;
+
+.objectives {
+  padding: 40px 0;
+}
+
+.objectives__wrapper {
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    gap: 10px;
+  }
+
+  @include vp-1280 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.objectives__title {
+  margin: 0 0 20px;
+
+  @include vp-768 {
+    padding: 5px 0 0;
+  }
+}
+
+.objectives__content {
+  @include vp-1280 {
+    grid-column: 2 / 5;
+  }
+}
+
+.objectives__slogan {
+  @include vp-1280 {
+    max-width: unset;
+  }
+
+  @include vp-1366 {
+    font-size: 80px;
+  }
+
+  @include vp-1640 {
+    font-size: 95px;
+  }
+
+  @include vp-1920 {
+    font-size: 110px;
+  }
+}
+
+.objectives__text {
+  max-width: 340px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+
+  span {
+    color: var(--accent);
+  }
+}

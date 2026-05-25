@@ -9,11 +9,11 @@
 @use "./components/button-swiper";
 @use "./components/button-scroll-top";
 @use "./components/breadcrumbs";
-@use "./components/map";
 @use "./components/modal";
 @use "./components/tabs";
 @use "./components/video";
 @use "./components/form-error-message";
+@use "./components/marquee";
 
 // подключения секций страницы
 @use "./blocks/header";
@@ -25,7 +25,7 @@
 @use "./blocks/stages";
 @use "./blocks/order-list";
 @use "./blocks/callback";
-@use "./blocks/blog-preview";
+@use "./blocks/blog";
 @use "./blocks/video-main";
 @use "./blocks/reviews";
 @use "./blocks/footer";
@@ -33,3 +33,11 @@
 @use "./blocks/thanks";
 @use "./blocks/services";
 @use "./blocks/price";
+@use "./blocks/objectives";
+@use "./blocks/brand-media";
+@use "./blocks/results";
+@use "./blocks/gallery";
+@use "./blocks/catalog";
+@use "./blocks/contacts";
+@use "./blocks/map";
+@use "./blocks/content";

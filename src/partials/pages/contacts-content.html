@@ -1,0 +1,105 @@
+<section class="contacts">
+  <div class="container">
+    <div class="contacts__wrapper">
+      <div class="contacts__list">
+        <h2 class="contacts__title">Контакты</h2>
+        <div class="contacts__item">
+          <div class="contacts__group">
+            <p class="contacts__name">Почта</p>
+            <a class="contacts__link" href="mailto:kristina@rodnova.com">kristina@rodnova.com</a>
+          </div>
+          <div class="contacts__group">
+            <p class="contacts__name">Телефон</p>
+            <a class="contacts__link" href="tel:+79035145040">+7&nbsp;903&nbsp;514&nbsp;50&nbsp;40</a>
+          </div>
+          <div class="contacts__group">
+            <ul class="contacts__socials">
+              <li class="contacts__social-item">
+                <a class="contacts__social-link contacts__social-link--max" href="#" target="_blank" rel="noreferrer noopener">
+                  <span class="visually-hidden">Max</span>
+                </a>
+              </li>
+              <li class="contacts__social-item">
+                <a class="contacts__social-link contacts__social-link--tg" href="#" target="_blank" rel="noreferrer noopener">
+                  <span class="visually-hidden">Telegram</span>
+                </a>
+              </li>
+              <li class="contacts__social-item">
+                <a class="contacts__social-link contacts__social-link--wa" href="#" target="_blank" rel="noreferrer noopener">
+                  <span class="visually-hidden">Whatsapp</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="contacts__item">
+          <p class="contacts__name">Наши реквизиты</p>
+          <div class="contacts__details">
+            <p>Наименование банка: ОАО&nbsp;"Сбербанк&nbsp;России"</p>
+            <p>БИК: 044525225</p>
+            <p>Корреспондентский счет: 30101810400000000225</p>
+            <p>Расчетный счет: 40702810000000012345</p>
+            <p>ИНН: 7707083893 </p>
+            <p>КПП: 770701001</p>
+          </div>
+        </div>
+        <div class="contacts__item contacts__item--time">
+          <p class="contacts__name">Режим работы</p>
+          <div class="contacts__details">
+            <p>Пн-Пт: с&nbsp;10:00 до&nbsp;18:00</p>
+            <p>Сб-Вс: выходной</p>
+          </div>
+        </div>
+        <div class="contacts__item contacts__item--socials">
+          <p class="contacts__socials-title">Мы в&nbsp;социальных сетях</p>
+          <ul class="contacts__socials">
+            <li class="contacts__social-item">
+              <a class="contacts__social-link contacts__social-link--tg contacts__social-link--big" href="#" target="_blank" rel="noreferrer noopener">
+                <span class="visually-hidden">Telegram</span>
+              </a>
+            </li>
+            <li class="contacts__social-item">
+              <a class="contacts__social-link contacts__social-link--youtube contacts__social-link--big" href="#" target="_blank" rel="noreferrer noopener">
+                <span class="visually-hidden">Youtube</span>
+              </a>
+            </li>
+            <li class="contacts__social-item">
+              <a class="contacts__social-link contacts__social-link--vk contacts__social-link--big" href="#" target="_blank" rel="noreferrer noopener">
+                <span class="visually-hidden">Vkontakte</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <form class="contacts__form" action="form.php" method="post">
+        <p class="contacts__form-title">Заполните форму, чтобы получить индивидуальное предложение.</p>
+        <div class="contacts__form-group">
+          <ul class="contacts__form-list">
+            <li class="contacts__form-item">
+              <label class="contacts__field">
+                <span class="contacts__label">Ваше имя</span>
+                <input class="contacts__input" type="text" name="name" placeholder="имя">
+              </label>
+            </li>
+            <li class="contacts__form-item">
+              <label class="contacts__field">
+                <span class="contacts__label">Ваш телефон</span>
+                <input class="contacts__input" type="tel" name="phone" placeholder="телефон">
+              </label>
+            </li>
+          </ul>
+        </div>
+        <label class="contacts__accept">
+          <span class="contacts__label">Я даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;Политикой конфиденциальности.</span>
+          <input class="visually-hidden" type="checkbox" name="accept">
+        </label>
+        <div class="contacts__form-button-container">
+          <div class="contacts__form-error-wrapper form-error-message">
+            <p class="contacts__form-error hidden">Обязательные поля не заполнены</p>
+          </div>
+          <button class="contacts__form-button button button--light-to-accent" type="submit">Отправить заявку +</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

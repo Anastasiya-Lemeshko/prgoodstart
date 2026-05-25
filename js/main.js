@@ -15609,7 +15609,7 @@ const SLIDER_CONFIG = {
     'desktop_count': 2,
     'loop': true
   },
-  'blog-preview': {
+  'blog': {
     'mobile_count': 1,
     'tablet_count': 2,
     'desktop_count': 4,
